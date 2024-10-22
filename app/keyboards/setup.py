@@ -1,19 +1,19 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-from app.database.requests import get_games
+from app.database.requests import get_games, get_languages
 
 
-async def language():
-    return InlineKeyboardMarkup(
-        inline_keyboard=[
-            [
-                InlineKeyboardButton(text="🇺🇦 Українська", callback_data="sel_lang_uk"),
-                InlineKeyboardButton(text="🇵🇱 Polska", callback_data="sel_lang_pl"),
-            ],
-            [InlineKeyboardButton(text="🇺🇸 English", callback_data="sel_lang_en")],
-        ]
-    )
+# async def language():
+#     return InlineKeyboardMarkup(
+#         inline_keyboard=[
+#             [
+#                 InlineKeyboardButton(text="🇺🇦 Українська", callback_data="sel_lang_uk"),
+#                 InlineKeyboardButton(text="🇵🇱 Polska", callback_data="sel_lang_pl"),
+#             ],
+#             [InlineKeyboardButton(text="🇺🇸 English", callback_data="sel_lang_en")],
+#         ]
+#     )
 
 
 async def currency():
@@ -26,6 +26,28 @@ async def currency():
             [InlineKeyboardButton(text="🇺🇸 USD", callback_data="sel_currency__USD")],
         ]
     )
+
+
+async def language():
+    languages = await get_languages()
+
+    if not languages:
+        return None  # Handle the case where no languages are found
+
+    # Create the builder object
+    keyboard_builder = InlineKeyboardBuilder()
+
+    # Add buttons for each language (2 per row)
+    for language in languages:
+        keyboard_builder.button(
+            text=language["name"], callback_data=f"sel_lang_{language['language_code']}"
+        )
+
+    # Adjust the button arrangement: 2 buttons per row
+    keyboard_builder.adjust(2)
+
+    # Build the keyboard and return
+    return keyboard_builder.as_markup()
 
 
 async def game():

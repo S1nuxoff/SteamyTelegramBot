@@ -16,9 +16,9 @@ async def compare_price(game_data, item, currency, currency_name):
     )
 
     # Проверяем успешность запроса к Steam
-    if not steam_data_response["success"]:
+    if not steam_data_response.get("success", False):
         error_message = get_error_message(
-            steam_data_response["error"], details=steam_data_response.get("details", "")
+            steam_data_response.get("error"), details=steam_data_response.get("details", "")
         )
         return {"success": False, "text": error_message}
 
@@ -29,17 +29,15 @@ async def compare_price(game_data, item, currency, currency_name):
         "offers": steam_data_response["data"].get("volume"),
     }
 
-    # Инициализируем данные DMarket
+    # Инициализируем данные DMarket, если данные пришли
     dmarket_data = None
-
     if dmarket_data_response:
         exchange_ratio = await rq.get_currency_ratio(currency)
-        ratio = exchange_ratio.get("ratio")
-
-        converted_max_price = round(dmarket_data_response.get("max_price") * ratio, 2)
-        converted_min_price = round(dmarket_data_response.get("min_price") * ratio, 2)
+        ratio = exchange_ratio.get("ratio", 1)  # Дефолтное значение 1 на случай ошибки
+        converted_max_price = round(dmarket_data_response.get("max_price", 0) * ratio, 2)
+        converted_min_price = round(dmarket_data_response.get("min_price", 0) * ratio, 2)
         converted_average_price = round(
-            dmarket_data_response.get("average_price") * ratio, 2
+            dmarket_data_response.get("average_price", 0) * ratio, 2
         )
 
         dmarket_data = {
@@ -58,23 +56,9 @@ async def compare_price(game_data, item, currency, currency_name):
             ).strftime("%d %B %Y, %H:%M"),
         }
 
-    # Формируем текст ответа
-    text = (
-        f"💬 <b>{item} | Markets prices</b>\n\n"
-        f" <b>🔸Steam:</b> \n"
-        f" |-Min Price: <u><b>{steam_data.get('min_price')}</b></u>\n"
-        f" |- Avg Price: <b>{steam_data.get('average_price')}</b>\n"
-        f" |- Offers: <b>{steam_data.get('offers')}</b>\n\n"
-        f"<b>🔹DMarket:</b>\n"
-        f"|- Min Price: <b><u>{dmarket_data.get('converted_min_price')} {currency_name}</u></b>\n"
-        f"|- Avg Price: <b>{dmarket_data.get('converted_average_price')} {currency_name}</b>\n"
-        f"|- Offers: <b>{dmarket_data.get('offers')}</b>\n\n"
-        f"<b>1 USD = {dmarket_data.get('converted_ratio')} {currency_name}</b>\n"
-        f"<code>{dmarket_data.get('exchange_time')}</code>"
-    )
-
+    # Возвращаем структурированные данные
     return {
         "success": True,
-        "text": text,
-        "data": {"steam_data": steam_data, "dmarket_data": dmarket_data},
+        "steam_data": steam_data,
+        "dmarket_data": dmarket_data,
     }

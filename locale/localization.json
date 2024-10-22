@@ -1,0 +1,457 @@
+{
+  "en": {
+    "buttons": {
+      "GET_STARTED": "Get started",
+      "BACK_BUTTON": "« Back",
+      "INSPECT_ITEM_BUTTON": "Inspect Item",
+      "FLOAT_CHECKER_BUTTON": "Float Checker",
+      "INVENTORY_VALUE_BUTTON": "Inventory Value",
+      "GET_PREMIUM_BUTTON": "⭐️ Get Premium",
+      "SUPPORT_BUTTON": "Support",
+      "SETTINGS_BUTTON": "⚙️ Settings",
+      "COMPARE_PRICES_BUTTON": "Compare Prices",
+      "PRICE_CHART_BUTTON": "Price Chart",
+      "PRICE_ALERT_BUTTON": "Price Alert",
+      "CHECK_LIQUIDITY_BUTTON": "Check Liquidity",
+      "ADD_TO_FAVORITE_BUTTON": "Add to Favorite🌟",
+      "CHANGE_ITEM_BUTTON": "🔄 Change Item",
+      "BACK_TO_MAIN_BUTTON": "« Back to Main",
+      "FAVORITES_BUTTON": "🌟 Favorites",
+      "SWITCH_GAME_BUTTON": "🔄 Switch Game",
+      "DELETE_CONFIRM_BUTTON": "✅ Yes, delete",
+      "LANGUAGE_BUTTON": "🌍 Language",
+      "CURRENCY_BUTTON": "💰 Currency",
+      "CANCEL_BUTTON": "❌ Cancel",
+      "PERIOD_DAY_BUTTON": "1D",
+      "PERIOD_WEEK_BUTTON": "1W",
+      "PERIOD_MONTH_BUTTON": "1M",
+      "PERIOD_ALL_BUTTON": "All"
+    },
+    "errors": {
+      "DATA_ERROR": "❌ *Oops! We couldn't retrieve data at the moment.*\n\nPlease try again later, and if the issue persists, feel free to contact our support team.",
+      "ERROR_NOT_FOUND": "Hmm, I couldn't find that item. Maybe it's from a different game? Double-check and give it another go!",
+      "ERROR_INVALID_ITEM": "It looks like I couldn't find that item. Could you check the details and try again?",
+      "ERROR_INVALID_GAME": "Oops! That item seems to belong to another game. Please try searching for it in the right one.",
+      "ERROR_TIMEOUT": "Sorry, it’s taking too long to respond. Please try again in a bit!",
+      "ERROR_JSON_DECODE": "Oops, something went wrong while processing the data. Try again soon!",
+      "ERROR_ITEM_EXISTS": "🙃 This item is already in your favorites list. No need to add it again!",
+      "ERROR_USER_NOT_FOUND": "Hmm, I couldn't find that user. Maybe double-check the ID?",
+      "ERROR_EMPTY_FAVORITE": "*Your favorites list is currently empty.*\n Add some items to track them!"
+    },
+    "inspect_menu": {
+      "INSPECT_ITEM_MENU": "🔗 *Inspect Item menu!*\nLet’s get started by selecting an item to inspect\n\n*How would you like to choose your item?*\n🔍 *Search:* Enter the item name or paste its link\n🌟 *Favorites:* Select from your saved favorite items\n\n🎮 *Selected Game:* _{game_name}_\n\n",
+      "CURRENTLY_INSPECTING_ITEM": "🔍 *You are currently inspecting:* *{inspected_item}*\nThis item is now ready for a detailed review.\n\n*Feel free to dive into the specifics*\n*just use the options in the menu below* 👇\n\n",
+      "STEAM_SUCCESS_MESSAGE": "✅ Data loaded successfully",
+      "STEAM_PERIOD_FALLBACK_MESSAGE": "😊 Oops! No data available for the selected period.\n🔄 We've used the period: {used_period}.",
+      "EMPTY_FAVORITES_LIST": "🧐 *Looks like your favorites list is empty*\n*You can easily add items later!*",
+      "RESET_INSPECTED_ITEM": "✅ *Item changed successfully!*",
+      "ADD_TO_FAVORITE_SUCCESS": "🌟 *Item added to your favorites!*",
+      "SWITCH_GAME": "🎮 *Switch Game*\n\n*Want to explore something new?*\nJust select the game you'd like to switch to.",
+      "GAME_SWITCHED": "✅ *Game switched to:* {game_name}",
+      "FAVORITES_SELECTION": "🌟 *Select an item from your favorites:*",
+      "NO_GAME_DATA_ERROR": "❌ *Error:* Game data not found."
+    },
+    "main_menu": {
+      "WELCOME_TEXT": "🔥 *Welcome to Steamy!*\nGreat to see you here! Let's get started.\n\n👇 Pick an option below, and we’ll dive right in!\n*I'm always here if you need anything.*"
+    },
+    "settings_menu": {
+      "SETTINGS_MENU_TEXT": "⚙️ *Settings Menu*\n\nHere you can adjust all your preferences.\nTake your time and explore the options!",
+      "SELECT_LANGUAGE_TEXT": "🌐 *Выберите ваш язык*\n\nВыберите язык, который вы предпочитаете использовать в приложении.\nПосле выбора он будет применен ко всем элементам интерфейса.",
+      "SELECT_CURRENCY_TEXT": "💰 *Choose Your Currency*\n\nSelect the currency you prefer to see in the app.\nOnce selected, it will be applied to all price displays.",
+      "CURRENCY_UPDATE_CONFIRMATION": "✅ Your currency has been updated!"
+    },
+    "setup": {
+      "SETUP_LANGUAGE_TEXT": "⚙️ *Let's quickly set up your preferences!*\nThis setup will take no more than 10 seconds.\n\n*📌 Step 1 / 4*\n*Please select your preferred language.*\nThis choice will determine how you interact with the bot\n\n☺️   *Don't worry, you can change it later in the settings*",
+      "SETUP_CURRENCY_TEXT": "⚙️ *Set up your preferences*\n\n📌 *Step 2 / 4*\n*Please select your preferred currency.\n*This choice will determine how item values are shown in the bot\n\n☺️   *Don't worry, you can change it later in the settings*",
+      "SETUP_STEP3_TEXT": "⚙️ *Set up your preferences*\n\n📌 *Step 3 / 4*\n*Please select your preferred region or additional settings.*\n\n☺️   *Don't worry, you can change it later in the settings*",
+      "SETUP_GAME_TEXT": "⚙️ *Set up your preferences*\n\n📌 *Step 4 / 4*\n*Please select your preferred game.*\n\n☺️   *Don't worry, you can change it later in the settings*",
+      "SETUP_COMPLETION_TEXT": "🤩 *Fantastic news!*\n\n*Your bot is ready and waiting for you.*\nJump in and explore all the exciting features it has to offer!\n\n🚀  *To start using the bot, press the button below now!!*"
+    },
+    "start_menu": {
+      "START_TEXT": "👋🏻 *Hello, I’m Steamy.*\n Helping you find deals, track prices, and manage your inventory\n\n😏 *What can I do for you?*\n\n•  *Price Comparison:* Find the best deals across platforms.\n•  *Chart Analysis:* Track and analyze price trends.\n•  *Liquidity Check:* See how easily items can be sold.\n•  *Price Alerts:* Get price change notifications.\n•  *Float Info:* Check item quality with Float values.\n•  *Best Float Search:* Find the best Float offers\n\n*Ready to explore? Let’s get started!* 🚀"
+    },
+    "check_float": {
+      "CHECK_FLOAT_TEXT": "🔍 *Float Check*\n\nTo help you find the float value of your item, please send us the 'rungame' link from Steam.\n\n*Here's how you can get it:*\n1. Right-click on the item in your inventory.\n2. Select *Inspect in Game*.\n3. Copy the link from your browser's address bar.\n4. Paste it here and send it to us.\n\nIf you need any assistance, don't hesitate to ask!",
+      "INVALID_RUNGAME_LINK": "⚠️ *Hmm, that doesn't seem to be a valid 'rungame' link.*\n\nPlease make sure you're sending the correct link from Steam. If you need help, here's how to get it:\n1. Right-click on the item in your inventory.\n\n2. Select *Inspect in Game*.\n3. Copy the link from your browser and send it here.",
+      "ITEM_DETAILS": "🎉 *Here are the details of your item:*\n\n• **Paint Seed:** {paint_seed}\n• **Paint Index:** {paint_index}\n• **Float Value:** {float_value:.6f}\n\nThank you for using our service! If there's anything else we can assist you with, please let us know."
+    },
+    "price_chart": {
+      "PRICE_CHART_PERIOD_TEXT": "📊 <b>Select Price Chart Period</b>\nPlease choose a time period to generate the price chart for the selected item:",
+      "FAIL_GENERATE_CHART": "❌ Failed to generate the chart.",
+      "PRICE_CHART_REPORT": "💬 <b>{inspected_item} {period} prices</b>\n\n🟢 <b>Max Price:</b>\n• <b>{converted_max_price} {currency_name}</b> / {max_price} USD\n• Sold: {sales_at_max_price} units\n\n🔴 <b>Min Price:</b>\n• <b>{converted_min_price} {currency_name}</b> / <b>{min_price} USD</b>\n• Sold: <b>{sales_at_min_price} units</b>\n\n🟡 <b>Avg Price:</b>\n• <b>{converted_avg_price} {currency_name}</b> / <b>{avg_price} USD</b>\n• Sold: <b>{sales_at_avg_price} units</b>\n\n<b>Total Sold:</b> {total_sales} units\n\n<b>Rate:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Updated</b> {exchange_time}"
+    },
+    "compare_prices": {
+      "MARKET_PRICES": "💬 <b>{item} | Markets prices</b>\n\n<b>🔸Steam:</b>\n|- Min Price: <u><b>{steam_min_price}</b></u>\n|- Avg Price: <b>{steam_average_price}</b>\n|- Offers: <b>{steam_offers}</b>\n\n<b>🔹DMarket:</b>\n|- Min Price: <b><u>{dmarket_converted_min_price} {currency_name}</u></b>\n|- Avg Price: <b>{dmarket_converted_average_price} {currency_name}</b>\n|- Offers: <b>{dmarket_offers}</b>\n\n<b>1 USD = {dmarket_converted_ratio} {currency_name}</b>\n<code>{dmarket_exchange_time}</code>"
+    },
+    "check_liquidity": {
+      "LIQUIDITY_REPORT": "💧 <b>Liquidity Check</b>\n\n🏆 <b>Highest Buy Request:</b> {highest_buy_order} or lower\n🏷️ <b>Lowest Sell Offer:</b> {lowest_sell_order} (after fees: {highest_sell_order_no_fee})\n\n⚖️ <b>Margin Status:</b> {margin_status}\n💼 <b>Margin Value:</b> {margin_value} ({margin}%)\n\n📈 Make smart trading decisions with these insights!"
+    },
+    "other": {
+      "COMING_SOON": "🚧 *Coming Soon!*\n\nWe're working hard to bring this feature to you. Stay tuned for updates!"
+    }
+  },
+  "ru": {
+    "buttons": {
+      "GET_STARTED": "Начать",
+      "BACK_BUTTON": "« Назад",
+      "INSPECT_ITEM_BUTTON": "Инспектировать предмет",
+      "FLOAT_CHECKER_BUTTON": "Проверка Float",
+      "INVENTORY_VALUE_BUTTON": "Стоимость инвентаря",
+      "GET_PREMIUM_BUTTON": "⭐️ Получить Premium",
+      "SUPPORT_BUTTON": "Поддержка",
+      "SETTINGS_BUTTON": "⚙️ Настройки",
+      "COMPARE_PRICES_BUTTON": "Сравнить цены",
+      "PRICE_CHART_BUTTON": "График цен",
+      "PRICE_ALERT_BUTTON": "Оповещение о цене",
+      "CHECK_LIQUIDITY_BUTTON": "Проверить ликвидность",
+      "ADD_TO_FAVORITE_BUTTON": "Добавить в избранное🌟",
+      "CHANGE_ITEM_BUTTON": "🔄 Изменить предмет",
+      "BACK_TO_MAIN_BUTTON": "« Назад к главному",
+      "FAVORITES_BUTTON": "🌟 Избранное",
+      "SWITCH_GAME_BUTTON": "🔄 Сменить игру",
+      "DELETE_CONFIRM_BUTTON": "✅ Да, удалить",
+      "LANGUAGE_BUTTON": "🌍 Язык",
+      "CURRENCY_BUTTON": "💰 Валюта",
+      "CANCEL_BUTTON": "❌ Отмена",
+      "PERIOD_DAY_BUTTON": "1Д",
+      "PERIOD_WEEK_BUTTON": "1Н",
+      "PERIOD_MONTH_BUTTON": "1М",
+      "PERIOD_ALL_BUTTON": "Все"
+    },
+    "errors": {
+      "DATA_ERROR": "❌ *Упс! Мы не смогли получить данные в данный момент.*\n\nПожалуйста, попробуйте позже, и если проблема сохраняется, свяжитесь с нашей службой поддержки.",
+      "ERROR_NOT_FOUND": "Хмм, я не смог найти этот предмет. Возможно, он из другой игры? Проверьте и попробуйте снова!",
+      "ERROR_INVALID_ITEM": "Похоже, я не смог найти этот предмет. Проверьте детали и попробуйте снова.",
+      "ERROR_INVALID_GAME": "Упс! Похоже, этот предмет принадлежит другой игре. Пожалуйста, попробуйте искать в правильной игре.",
+      "ERROR_TIMEOUT": "Извините, ответ занимает слишком много времени. Пожалуйста, попробуйте снова через некоторое время!",
+      "ERROR_JSON_DECODE": "Упс, что-то пошло не так при обработке данных. Попробуйте снова позже!",
+      "ERROR_ITEM_EXISTS": "🙃 Этот предмет уже находится в вашем списке избранных. Нет необходимости добавлять его снова!",
+      "ERROR_USER_NOT_FOUND": "Хмм, я не смог найти этого пользователя. Возможно, проверьте ID еще раз?",
+      "ERROR_EMPTY_FAVORITE": "*Ваш список избранных в данный момент пуст.*\n Добавьте некоторые предметы для отслеживания!"
+    },
+    "inspect_menu": {
+      "INSPECT_ITEM_MENU": "🔗 *Меню инспекции предмета!*\nДавайте начнем с выбора предмета для инспекции\n\n*Как вы хотите выбрать предмет?*\n🔍 *Поиск:* Введите название предмета или вставьте его ссылку\n🌟 *Избранное:* Выберите из сохраненных избранных предметов\n\n🎮 *Выбранная игра:* _{game_name}_\n\n",
+      "CURRENTLY_INSPECTING_ITEM": "🔍 *Вы сейчас инспектируете:* *{inspected_item}*\nЭтот предмет готов к детальному обзору.\n\n*Не стесняйтесь углубляться в детали*\n*просто используйте варианты в меню ниже* 👇\n\n",
+      "STEAM_SUCCESS_MESSAGE": "✅ Данные успешно загружены",
+      "STEAM_PERIOD_FALLBACK_MESSAGE": "😊 Упс! Нет данных за выбранный период.\n🔄 Мы использовали период: {used_period}.",
+      "EMPTY_FAVORITES_LIST": "🧐 *Похоже, ваш список избранных пуст*\n*Вы можете легко добавить предметы позже!*",
+      "RESET_INSPECTED_ITEM": "✅ *Предмет успешно изменен!*",
+      "ADD_TO_FAVORITE_SUCCESS": "🌟 *Предмет добавлен в избранное!*",
+      "SWITCH_GAME": "🎮 *Сменить игру*\n\n*Хотите исследовать что-то новое?*\nПросто выберите игру, на которую хотите переключиться.",
+      "GAME_SWITCHED": "✅ *Игра переключена на:* {game_name}",
+      "FAVORITES_SELECTION": "🌟 *Выберите предмет из избранного:*",
+      "NO_GAME_DATA_ERROR": "❌ *Ошибка:* Данные игры не найдены."
+    },
+    "main_menu": {
+      "WELCOME_TEXT": "🔥 *Добро пожаловать в Steamy!*\nРад вас видеть здесь! Давайте начнем.\n\n👇 Выберите опцию ниже, и мы приступим!\n*Я всегда здесь, если вам что-то понадобится.*"
+    },
+    "settings_menu": {
+      "SETTINGS_MENU_TEXT": "⚙️ *Меню настроек*\n\nЗдесь вы можете настроить все свои предпочтения.\nНе спешите и изучите все варианты!",
+      "SELECT_LANGUAGE_TEXT": "🌐 *Выберите ваш язык*\n\nВыберите язык, который вы предпочитаете использовать в приложении.\nПосле выбора он будет применен ко всем элементам интерфейса.",
+      "SELECT_CURRENCY_TEXT": "💰 *Выберите вашу валюту*\n\nВыберите валюту, которую вы предпочитаете видеть в приложении.\nПосле выбора она будет применена ко всем отображениям цен.",
+      "CURRENCY_UPDATE_CONFIRMATION": "✅ Ваша валюта была обновлена!"
+    },
+    "setup": {
+      "SETUP_LANGUAGE_TEXT": "⚙️ *Давайте быстро настроим ваши предпочтения!*\nЭта настройка займет не более 10 секунд.\n\n*📌 Шаг 1 / 4*\n*Пожалуйста, выберите предпочитаемый язык.*\nЭтот выбор определит, как вы будете взаимодействовать с ботом\n\n☺️   *Не волнуйтесь, вы можете изменить его позже в настройках*",
+      "SETUP_CURRENCY_TEXT": "⚙️ *Настройте ваши предпочтения*\n\n📌 *Шаг 2 / 4*\n*Пожалуйста, выберите предпочитаемую валюту.*\n*Этот выбор определит, как значения предметов будут отображаться в боте*\n\n☺️   *Не волнуйтесь, вы можете изменить его позже в настройках*",
+      "SETUP_STEP3_TEXT": "⚙️ *Настройте ваши предпочтения*\n\n📌 *Шаг 3 / 4*\n*Пожалуйста, выберите предпочитаемый регион или дополнительные настройки.*\n\n☺️   *Не волнуйтесь, вы можете изменить его позже в настройках*",
+      "SETUP_GAME_TEXT": "⚙️ *Настройте ваши предпочтения*\n\n📌 *Шаг 4 / 4*\n*Пожалуйста, выберите предпочитаемую игру.*\n\n☺️   *Не волнуйтесь, вы можете изменить ее позже в настройках*",
+      "SETUP_COMPLETION_TEXT": "🤩 *Фантастические новости!*\n\n*Ваш бот готов и ждет вас.*\nПогрузитесь и изучите все захватывающие функции, которые он предлагает!\n\n🚀  *Чтобы начать использовать бота, нажмите кнопку ниже сейчас!!*"
+    },
+    "start_menu": {
+      "START_TEXT": "👋🏻 *Привет, я Steamy.*\n Помогаю находить предложения, отслеживать цены и управлять вашим инвентарем\n\n😏 *Что я могу для вас сделать?*\n\n•  *Сравнение цен:* Найдите лучшие предложения на разных платформах.\n•  *Анализ графиков:* Отслеживайте и анализируйте тенденции цен.\n•  *Проверка ликвидности:* Узнайте, насколько легко можно продать предметы.\n•  *Оповещения о ценах:* Получайте уведомления об изменении цен.\n•  *Информация о Float:* Проверьте качество предмета по значениям Float.\n•  *Лучший поиск Float:* Найдите лучшие предложения по Float\n\n*Готовы исследовать? Давайте начнем!* 🚀"
+    },
+    "check_float": {
+      "CHECK_FLOAT_TEXT": "🔍 *Проверка Float*\n\nЧтобы помочь вам найти значение Float вашего предмета, пожалуйста, отправьте нам ссылку 'rungame' из Steam.\n\n*Вот как вы можете ее получить:*\n1. Щелкните правой кнопкой мыши по предмету в вашем инвентаре.\n2. Выберите *Инспектировать в игре*.\n3. Скопируйте ссылку из адресной строки браузера.\n4. Вставьте ее сюда и отправьте нам.\n\nЕсли вам нужна помощь, не стесняйтесь спрашивать!",
+      "INVALID_RUNGAME_LINK": "⚠️ *Хмм, похоже, это не действительная ссылка 'rungame'.*\n\nПожалуйста, убедитесь, что вы отправляете правильную ссылку из Steam. Если вам нужна помощь, вот как ее получить:\n1. Щелкните правой кнопкой мыши по предмету в вашем инвентаре.\n\n2. Выберите *Инспектировать в игре*.\n3. Скопируйте ссылку из браузера и отправьте ее сюда.",
+      "ITEM_DETAILS": "🎉 *Вот детали вашего предмета:*\n\n• **Paint Seed:** {paint_seed}\n• **Paint Index:** {paint_index}\n• **Float Value:** {float_value:.6f}\n\nСпасибо за использование нашего сервиса! Если вам нужна дополнительная помощь, дайте нам знать."
+    },
+    "price_chart": {
+      "PRICE_CHART_PERIOD_TEXT": "📊 <b>Выберите период графика цен</b>\nПожалуйста, выберите период времени для создания графика цен выбранного предмета:",
+      "FAIL_GENERATE_CHART": "❌ Не удалось создать график.",
+      "PRICE_CHART_REPORT": "💬 <b>{inspected_item} Цены за {period}</b>\n\n🟢 <b>Максимальная цена:</b>\n• <b>{converted_max_price} {currency_name}</b> / {max_price} USD\n• Продано: {sales_at_max_price} шт.\n\n🔴 <b>Минимальная цена:</b>\n• <b>{converted_min_price} {currency_name}</b> / <b>{min_price} USD</b>\n• Продано: <b>{sales_at_min_price} шт.</b>\n\n🟡 <b>Средняя цена:</b>\n• <b>{converted_avg_price} {currency_name}</b> / <b>{avg_price} USD</b>\n• Продано: <b>{sales_at_avg_price} шт.</b>\n\n<b>Всего продано:</b> {total_sales} шт.\n\n<b>Курс:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Обновлено:</b> {exchange_time}"
+    },
+    "compare_prices": {
+      "MARKET_PRICES": "💬 <b>{item} | Цены на рынках</b>\n\n<b>🔸Steam:</b>\n|- Мин. цена: <u><b>{steam_min_price}</b></u>\n|- Ср. цена: <b>{steam_average_price}</b>\n|- Предложений: <b>{steam_offers}</b>\n\n<b>🔹DMarket:</b>\n|- Мин. цена: <b><u>{dmarket_converted_min_price} {currency_name}</u></b>\n|- Ср. цена: <b>{dmarket_converted_average_price} {currency_name}</b>\n|- Предложений: <b>{dmarket_offers}</b>\n\n<b>1 USD = {dmarket_converted_ratio} {currency_name}</b>\n<code>{dmarket_exchange_time}</code>"
+    },
+    "check_liquidity": {
+      "LIQUIDITY_REPORT": "💧 <b>Проверка ликвидности</b>\n\n🏆 <b>Самая высокая заявка на покупку:</b> {highest_buy_order} или ниже\n🏷️ <b>Самое низкое предложение на продажу:</b> {lowest_sell_order} (после комиссий: {highest_sell_order_no_fee})\n\n⚖️ <b>Статус маржи:</b> {margin_status}\n💼 <b>Значение маржи:</b> {margin_value} ({margin}%)\n\n📈 Принимайте разумные торговые решения с помощью этих данных!"
+    },
+    "other": {
+      "COMING_SOON": "🚧 *Скоро будет!*\n\nМы усердно работаем над этой функцией для вас. Следите за обновлениями!"
+    }
+  },
+  "uk": {
+    "buttons": {
+      "GET_STARTED": "Почати",
+      "BACK_BUTTON": "« Назад",
+      "INSPECT_ITEM_BUTTON": "Інспектувати предмет",
+      "FLOAT_CHECKER_BUTTON": "Перевірка Float",
+      "INVENTORY_VALUE_BUTTON": "Вартість інвентарю",
+      "GET_PREMIUM_BUTTON": "⭐️ Отримати Premium",
+      "SUPPORT_BUTTON": "Підтримка",
+      "SETTINGS_BUTTON": "⚙️ Налаштування",
+      "COMPARE_PRICES_BUTTON": "Порівняти ціни",
+      "PRICE_CHART_BUTTON": "Графік цін",
+      "PRICE_ALERT_BUTTON": "Сповіщення про ціну",
+      "CHECK_LIQUIDITY_BUTTON": "Перевірити ліквідність",
+      "ADD_TO_FAVORITE_BUTTON": "Додати до обраного🌟",
+      "CHANGE_ITEM_BUTTON": "🔄 Змінити предмет",
+      "BACK_TO_MAIN_BUTTON": "« Назад до головного",
+      "FAVORITES_BUTTON": "🌟 Обране",
+      "SWITCH_GAME_BUTTON": "🔄 Змінити гру",
+      "DELETE_CONFIRM_BUTTON": "✅ Так, видалити",
+      "LANGUAGE_BUTTON": "🌍 Мова",
+      "CURRENCY_BUTTON": "💰 Валюта",
+      "CANCEL_BUTTON": "❌ Скасувати",
+      "PERIOD_DAY_BUTTON": "1Д",
+      "PERIOD_WEEK_BUTTON": "1Н",
+      "PERIOD_MONTH_BUTTON": "1М",
+      "PERIOD_ALL_BUTTON": "Всі"
+    },
+    "errors": {
+      "DATA_ERROR": "❌ *Упс! Ми не змогли отримати дані в даний момент.*\n\nБудь ласка, спробуйте пізніше, і якщо проблема зберігається, зверніться до нашої служби підтримки.",
+      "ERROR_NOT_FOUND": "Хмм, я не зміг знайти цей предмет. Можливо, він з іншої гри? Перевірте і спробуйте ще раз!",
+      "ERROR_INVALID_ITEM": "Схоже, я не зміг знайти цей предмет. Перевірте деталі та спробуйте ще раз.",
+      "ERROR_INVALID_GAME": "Упс! Схоже, цей предмет належить іншій грі. Будь ласка, спробуйте шукати в правильній грі.",
+      "ERROR_TIMEOUT": "Вибачте, відповідь займає занадто багато часу. Будь ласка, спробуйте ще раз через деякий час!",
+      "ERROR_JSON_DECODE": "Упс, щось пішло не так при обробці даних. Спробуйте ще раз пізніше!",
+      "ERROR_ITEM_EXISTS": "🙃 Цей предмет вже знаходиться у вашому списку обраного. Немає потреби додавати його знову!",
+      "ERROR_USER_NOT_FOUND": "Хмм, я не зміг знайти цього користувача. Можливо, перевірте ID ще раз?",
+      "ERROR_EMPTY_FAVORITE": "*Ваш список обраного наразі порожній.*\n Додайте деякі предмети для відстеження!"
+    },
+    "inspect_menu": {
+      "INSPECT_ITEM_MENU": "🔗 *Меню інспекції предмета!*\nДавайте почнемо з вибору предмета для інспекції\n\n*Як ви хочете вибрати предмет?*\n🔍 *Пошук:* Введіть назву предмета або вставте його посилання\n🌟 *Обране:* Виберіть збережені обрані предмети\n\n🎮 *Вибрана гра:* _{game_name}_\n\n",
+      "CURRENTLY_INSPECTING_ITEM": "🔍 *Ви зараз інспектуєте:* *{inspected_item}*\nЦей предмет готовий до детального огляду.\n\n*Не соромтеся заглиблюватися в деталі*\n*просто використовуйте варіанти в меню нижче* 👇\n\n",
+      "STEAM_SUCCESS_MESSAGE": "✅ Дані успішно завантажено",
+      "STEAM_PERIOD_FALLBACK_MESSAGE": "😊 Упс! Немає даних за вибраний період.\n🔄 Ми використали період: {used_period}.",
+      "EMPTY_FAVORITES_LIST": "🧐 *Схоже, ваш список обраного порожній*\n*Ви можете легко додати предмети пізніше!*",
+      "RESET_INSPECTED_ITEM": "✅ *Предмет успішно змінено!*",
+      "ADD_TO_FAVORITE_SUCCESS": "🌟 *Предмет додано до обраного!*",
+      "SWITCH_GAME": "🎮 *Змінити гру*\n\n*Хочете дослідити щось нове?*\nПросто виберіть гру, на яку хочете переключитися.",
+      "GAME_SWITCHED": "✅ *Гра переключена на:* {game_name}",
+      "FAVORITES_SELECTION": "🌟 *Виберіть предмет з обраного:*",
+      "NO_GAME_DATA_ERROR": "❌ *Помилка:* Дані гри не знайдені."
+    },
+    "main_menu": {
+      "WELCOME_TEXT": "🔥 *Ласкаво просимо до Steamy!*\nРадий вас бачити тут! Давайте почнемо.\n\n👇 Виберіть опцію нижче, і ми приступимо!\n*Я завжди тут, якщо вам щось знадобиться.*"
+    },
+    "settings_menu": {
+      "SETTINGS_MENU_TEXT": "⚙️ *Меню налаштувань*\n\nТут ви можете налаштувати всі свої уподобання.\nНе поспішайте і вивчіть всі варіанти!",
+      "SELECT_LANGUAGE_TEXT": "🌐 *Виберіть вашу мову*\n\nВиберіть мову, яку ви бажаєте використовувати в додатку.\nПісля вибору вона буде застосована до всіх елементів інтерфейсу.",
+      "SELECT_CURRENCY_TEXT": "💰 *Виберіть вашу валюту*\n\nВиберіть валюту, яку ви бажаєте бачити в додатку.\nПісля вибору вона буде застосована до всіх відображень цін.",
+      "CURRENCY_UPDATE_CONFIRMATION": "✅ Ваша валюта була оновлена!"
+    },
+    "setup": {
+      "SETUP_LANGUAGE_TEXT": "⚙️ *Давайте швидко налаштуємо ваші уподобання!*\nЦя настройка займе не більше 10 секунд.\n\n*📌 Крок 1 / 4*\n*Будь ласка, виберіть вашу улюблену мову.*\nЦей вибір визначить, як ви будете взаємодіяти з ботом\n\n☺️   *Не хвилюйтеся, ви можете змінити його пізніше в налаштуваннях*",
+      "SETUP_CURRENCY_TEXT": "⚙️ *Налаштуйте ваші уподобання*\n\n📌 *Крок 2 / 4*\n*Будь ласка, виберіть улюблену валюту.*\n*Цей вибір визначить, як значення предметів будуть відображатися в боті*\n\n☺️   *Не хвилюйтеся, ви можете змінити її пізніше в налаштуваннях*",
+      "SETUP_STEP3_TEXT": "⚙️ *Налаштуйте ваші уподобання*\n\n📌 *Крок 3 / 4*\n*Будь ласка, виберіть улюблений регіон або додаткові налаштування.*\n\n☺️   *Не хвилюйтеся, ви можете змінити його пізніше в налаштуваннях*",
+      "SETUP_GAME_TEXT": "⚙️ *Налаштуйте ваші уподобання*\n\n📌 *Крок 4 / 4*\n*Будь ласка, виберіть улюблену гру.*\n\n☺️   *Не хвилюйтеся, ви можете змінити її пізніше в налаштуваннях*",
+      "SETUP_COMPLETION_TEXT": "🤩 *Фантастичні новини!*\n\n*Ваш бот готовий і чекає на вас.*\nПориньте і вивчіть всі захоплюючі функції, які він пропонує!\n\n🚀  *Щоб почати використовувати бота, натисніть кнопку нижче зараз!!*"
+    },
+    "start_menu": {
+      "START_TEXT": "👋🏻 *Привіт, я Steamy.*\n Допомагаю знаходити пропозиції, відстежувати ціни та керувати вашим інвентарем\n\n😏 *Що я можу для вас зробити?*\n\n•  *Порівняння цін:* Знайдіть найкращі пропозиції на різних платформах.\n•  *Аналіз графіків:* Відстежуйте та аналізуйте тенденції цін.\n•  *Перевірка ліквідності:* Дізнайтеся, наскільки легко можна продати предмети.\n•  *Сповіщення про ціни:* Отримуйте повідомлення про зміну цін.\n•  *Інформація про Float:* Перевірте якість предмета за значеннями Float.\n•  *Найкращий пошук Float:* Знайдіть найкращі пропозиції по Float\n\n*Готові досліджувати? Давайте почнемо!* 🚀"
+    },
+    "check_float": {
+      "CHECK_FLOAT_TEXT": "🔍 *Перевірка Float*\n\nЩоб допомогти вам знайти значення Float вашого предмета, будь ласка, надішліть нам посилання 'rungame' з Steam.\n\n*Ось як ви можете його отримати:*\n1. Клацніть правою кнопкою миші на предметі у вашому інвентарі.\n2. Виберіть *Інспектувати в грі*.\n3. Скопіюйте посилання з адресного рядка браузера.\n4. Вставте його сюди та надішліть нам.\n\nЯкщо вам потрібна допомога, не соромтеся питати!",
+      "INVALID_RUNGAME_LINK": "⚠️ *Хмм, схоже, це не дійсне посилання 'rungame'.*\n\nБудь ласка, переконайтеся, що ви надсилаєте правильне посилання з Steam. Якщо вам потрібна допомога, ось як його отримати:\n1. Клацніть правою кнопкою миші на предметі у вашому інвентарі.\n\n2. Виберіть *Інспектувати в грі*.\n3. Скопіюйте посилання з браузера та надішліть його сюди.",
+      "ITEM_DETAILS": "🎉 *Ось деталі вашого предмета:*\n\n• **Paint Seed:** {paint_seed}\n• **Paint Index:** {paint_index}\n• **Float Value:** {float_value:.6f}\n\nДякуємо за використання нашого сервісу! Якщо вам потрібна додаткова допомога, дайте нам знати."
+    },
+    "price_chart": {
+      "PRICE_CHART_PERIOD_TEXT": "📊 <b>Виберіть період графіка цін</b>\nБудь ласка, виберіть період часу для створення графіка цін вибраного предмета:",
+      "FAIL_GENERATE_CHART": "❌ Не вдалося створити графік.",
+      "PRICE_CHART_REPORT": "💬 <b>{inspected_item} Ціни за {period}</b>\n\n🟢 <b>Максимальна ціна:</b>\n• <b>{converted_max_price} {currency_name}</b> / {max_price} USD\n• Продано: {sales_at_max_price} шт.\n\n🔴 <b>Мінімальна ціна:</b>\n• <b>{converted_min_price} {currency_name}</b> / <b>{min_price} USD</b>\n• Продано: <b>{sales_at_min_price} шт.</b>\n\n🟡 <b>Середня ціна:</b>\n• <b>{converted_avg_price} {currency_name}</b> / <b>{avg_price} USD</b>\n• Продано: <b>{sales_at_avg_price} шт.</b>\n\n<b>Всього продано:</b> {total_sales} шт.\n\n<b>Курс:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Оновлено:</b> {exchange_time}"
+    },
+    "compare_prices": {
+      "MARKET_PRICES": "💬 <b>{item} | Ціни на ринках</b>\n\n<b>🔸Steam:</b>\n|- Мін. ціна: <u><b>{steam_min_price}</b></u>\n|- Ср. ціна: <b>{steam_average_price}</b>\n|- Пропозицій: <b>{steam_offers}</b>\n\n<b>🔹DMarket:</b>\n|- Мін. ціна: <b><u>{dmarket_converted_min_price} {currency_name}</u></b>\n|- Ср. ціна: <b>{dmarket_converted_average_price} {currency_name}</b>\n|- Пропозицій: <b>{dmarket_offers}</b>\n\n<b>1 USD = {dmarket_converted_ratio} {currency_name}</b>\n<code>{dmarket_exchange_time}</code>"
+    },
+    "check_liquidity": {
+      "LIQUIDITY_REPORT": "💧 <b>Перевірка ліквідності</b>\n\n🏆 <b>Найвищий запит на покупку:</b> {highest_buy_order} або нижче\n🏷️ <b>Найнижча пропозиція на продаж:</b> {lowest_sell_order} (після комісій: {highest_sell_order_no_fee})\n\n⚖️ <b>Статус маржі:</b> {margin_status}\n💼 <b>Значення маржі:</b> {margin_value} ({margin}%)\n\n📈 Приймайте розумні торгові рішення з цими даними!"
+    },
+    "other": {
+      "COMING_SOON": "🚧 *Скоро буде!*\n\nМи активно працюємо над цією функцією для вас. Стежте за оновленнями!"
+    }
+  },
+  "pl": {
+    "buttons": {
+      "GET_STARTED": "Rozpocznij",
+      "BACK_BUTTON": "« Wstecz",
+      "INSPECT_ITEM_BUTTON": "Inspekcja przedmiotu",
+      "FLOAT_CHECKER_BUTTON": "Sprawdzanie Float",
+      "INVENTORY_VALUE_BUTTON": "Wartość ekwipunku",
+      "GET_PREMIUM_BUTTON": "⭐️ Otrzymaj Premium",
+      "SUPPORT_BUTTON": "Wsparcie",
+      "SETTINGS_BUTTON": "⚙️ Ustawienia",
+      "COMPARE_PRICES_BUTTON": "Porównaj ceny",
+      "PRICE_CHART_BUTTON": "Wykres cen",
+      "PRICE_ALERT_BUTTON": "Alert cenowy",
+      "CHECK_LIQUIDITY_BUTTON": "Sprawdź płynność",
+      "ADD_TO_FAVORITE_BUTTON": "Dodaj do ulubionych🌟",
+      "CHANGE_ITEM_BUTTON": "🔄 Zmień przedmiot",
+      "BACK_TO_MAIN_BUTTON": "« Wróć do głównego",
+      "FAVORITES_BUTTON": "🌟 Ulubione",
+      "SWITCH_GAME_BUTTON": "🔄 Zmień grę",
+      "DELETE_CONFIRM_BUTTON": "✅ Tak, usuń",
+      "LANGUAGE_BUTTON": "🌍 Język",
+      "CURRENCY_BUTTON": "💰 Waluta",
+      "CANCEL_BUTTON": "❌ Anuluj",
+      "PERIOD_DAY_BUTTON": "1D",
+      "PERIOD_WEEK_BUTTON": "1T",
+      "PERIOD_MONTH_BUTTON": "1M",
+      "PERIOD_ALL_BUTTON": "Wszystkie"
+    },
+    "errors": {
+      "DATA_ERROR": "❌ *Ups! Nie mogliśmy pobrać danych w tej chwili.*\n\nProszę spróbuj ponownie później, a jeśli problem będzie się utrzymywał, skontaktuj się z naszym zespołem wsparcia.",
+      "ERROR_NOT_FOUND": "Hmm, nie mogłem znaleźć tego przedmiotu. Może pochodzi z innej gry? Sprawdź i spróbuj ponownie!",
+      "ERROR_INVALID_ITEM": "Wygląda na to, że nie mogłem znaleźć tego przedmiotu. Sprawdź szczegóły i spróbuj ponownie.",
+      "ERROR_INVALID_GAME": "Ups! Ten przedmiot wydaje się należeć do innej gry. Proszę spróbuj szukać w odpowiedniej.",
+      "ERROR_TIMEOUT": "Przepraszamy, odpowiedź zajmuje zbyt dużo czasu. Spróbuj ponownie za chwilę!",
+      "ERROR_JSON_DECODE": "Ups, coś poszło nie tak podczas przetwarzania danych. Spróbuj ponownie wkrótce!",
+      "ERROR_ITEM_EXISTS": "🙃 Ten przedmiot jest już na liście ulubionych. Nie trzeba go dodawać ponownie!",
+      "ERROR_USER_NOT_FOUND": "Hmm, nie mogłem znaleźć tego użytkownika. Może sprawdź ID jeszcze raz?",
+      "ERROR_EMPTY_FAVORITE": "*Twoja lista ulubionych jest obecnie pusta.*\n Dodaj kilka przedmiotów, aby je śledzić!"
+    },
+    "inspect_menu": {
+      "INSPECT_ITEM_MENU": "🔗 *Menu inspekcji przedmiotu!*\nZacznijmy od wybrania przedmiotu do inspekcji\n\n*Jak chcesz wybrać swój przedmiot?*\n🔍 *Szukaj:* Wpisz nazwę przedmiotu lub wklej jego link\n🌟 *Ulubione:* Wybierz z zapisanych ulubionych przedmiotów\n\n🎮 *Wybrana gra:* _{game_name}_\n\n",
+      "CURRENTLY_INSPECTING_ITEM": "🔍 *Aktualnie inspekcja:* *{inspected_item}*\nTen przedmiot jest gotowy do szczegółowego przeglądu.\n\n*Śmiało zagłębiaj się w szczegóły*\n*po prostu użyj opcji w menu poniżej* 👇\n\n",
+      "STEAM_SUCCESS_MESSAGE": "✅ Dane załadowane pomyślnie",
+      "STEAM_PERIOD_FALLBACK_MESSAGE": "😊 Ups! Brak danych za wybrany okres.\n🔄 Użyliśmy okresu: {used_period}.",
+      "EMPTY_FAVORITES_LIST": "🧐 *Wygląda na to, że twoja lista ulubionych jest pusta*\n*Możesz łatwo dodać przedmioty później!*",
+      "RESET_INSPECTED_ITEM": "✅ *Przedmiot został pomyślnie zmieniony!*",
+      "ADD_TO_FAVORITE_SUCCESS": "🌟 *Przedmiot dodany do ulubionych!*",
+      "SWITCH_GAME": "🎮 *Zmień grę*\n\n*Chcesz odkryć coś nowego?*\nPo prostu wybierz grę, na którą chcesz się przełączyć.",
+      "GAME_SWITCHED": "✅ *Gra zmieniona na:* {game_name}",
+      "FAVORITES_SELECTION": "🌟 *Wybierz przedmiot z ulubionych:*",
+      "NO_GAME_DATA_ERROR": "❌ *Błąd:* Dane gry nie znaleziono."
+    },
+    "main_menu": {
+      "WELCOME_TEXT": "🔥 *Witamy w Steamy!*\nCieszymy się, że jesteś tutaj! Zaczynajmy.\n\n👇 Wybierz opcję poniżej, a od razu zaczniemy!\n*Zawsze jestem tutaj, jeśli czegoś potrzebujesz.*"
+    },
+    "settings_menu": {
+      "SETTINGS_MENU_TEXT": "⚙️ *Menu ustawień*\n\nTutaj możesz dostosować wszystkie swoje preferencje.\nNie śpiesz się i przejrzyj dostępne opcje!",
+      "SELECT_LANGUAGE_TEXT": "🌐 *Wybierz swój język*\n\nWybierz język, którego chcesz używać w aplikacji.\nPo wybraniu zostanie on zastosowany do wszystkich elementów interfejsu.",
+      "SELECT_CURRENCY_TEXT": "💰 *Wybierz swoją walutę*\n\nWybierz walutę, którą chcesz widzieć w aplikacji.\nPo wybraniu zostanie ona zastosowana do wszystkich wyświetlanych cen.",
+      "CURRENCY_UPDATE_CONFIRMATION": "✅ Twoja waluta została zaktualizowana!"
+    },
+    "setup": {
+      "SETUP_LANGUAGE_TEXT": "⚙️ *Szybko ustawmy Twoje preferencje!*\nTo ustawienie zajmie nie więcej niż 10 sekund.\n\n*📌 Krok 1 / 4*\n*Proszę wybierz preferowany język.*\nTen wybór określi, jak będziesz wchodzić w interakcję z botem\n\n☺️   *Nie martw się, możesz zmienić go później w ustawieniach*",
+      "SETUP_CURRENCY_TEXT": "⚙️ *Ustaw swoje preferencje*\n\n📌 *Krok 2 / 4*\n*Proszę wybierz preferowaną walutę.*\n*Ten wybór określi, jak wartości przedmiotów będą wyświetlane w bocie*\n\n☺️   *Nie martw się, możesz zmienić ją później w ustawieniach*",
+      "SETUP_STEP3_TEXT": "⚙️ *Ustaw swoje preferencje*\n\n📌 *Krok 3 / 4*\n*Proszę wybierz preferowany region lub dodatkowe ustawienia.*\n\n☺️   *Nie martw się, możesz zmienić go później w ustawieniach*",
+      "SETUP_GAME_TEXT": "⚙️ *Ustaw swoje preferencje*\n\n📌 *Krok 4 / 4*\n*Proszę wybierz preferowaną grę.*\n\n☺️   *Nie martw się, możesz zmienić ją później w ustawieniach*",
+      "SETUP_COMPLETION_TEXT": "🤩 *Fantastyczne wieści!*\n\n*Twój bot jest gotowy i czeka na Ciebie.*\nZanurz się i odkryj wszystkie ekscytujące funkcje, które oferuje!\n\n🚀  *Aby zacząć korzystać z bota, naciśnij przycisk poniżej teraz!!*"
+    },
+    "start_menu": {
+      "START_TEXT": "👋🏻 *Cześć, jestem Steamy.*\n Pomagam znajdować oferty, śledzić ceny i zarządzać Twoim ekwipunkiem\n\n😏 *Co mogę dla Ciebie zrobić?*\n\n•  *Porównanie cen:* Znajdź najlepsze oferty na różnych platformach.\n•  *Analiza wykresów:* Śledź i analizuj trendy cen.\n•  *Sprawdzenie płynności:* Zobacz, jak łatwo można sprzedać przedmioty.\n•  *Alerty cenowe:* Otrzymuj powiadomienia o zmianie cen.\n•  *Informacje o Float:* Sprawdź jakość przedmiotu za pomocą wartości Float.\n•  *Najlepsze wyszukiwanie Float:* Znajdź najlepsze oferty Float\n\n*Gotowy do odkrywania? Zaczynajmy!* 🚀"
+    },
+    "check_float": {
+      "CHECK_FLOAT_TEXT": "🔍 *Sprawdzenie Float*\n\nAby pomóc Ci znaleźć wartość Float Twojego przedmiotu, proszę prześlij nam link 'rungame' ze Steam.\n\n*Oto jak możesz go zdobyć:*\n1. Kliknij prawym przyciskiem myszy na przedmiocie w swoim ekwipunku.\n2. Wybierz *Inspekcja w grze*.\n3. Skopiuj link z paska adresu przeglądarki.\n4. Wklej go tutaj i prześlij nam.\n\nJeśli potrzebujesz pomocy, nie wahaj się pytać!",
+      "INVALID_RUNGAME_LINK": "⚠️ *Hmm, wygląda na to, że to nieprawidłowy link 'rungame'.*\n\nUpewnij się, że wysyłasz prawidłowy link ze Steam. Jeśli potrzebujesz pomocy, oto jak go zdobyć:\n1. Kliknij prawym przyciskiem myszy na przedmiocie w swoim ekwipunku.\n\n2. Wybierz *Inspekcja w grze*.\n3. Skopiuj link z przeglądarki i prześlij go tutaj.",
+      "ITEM_DETAILS": "🎉 *Oto szczegóły Twojego przedmiotu:*\n\n• **Paint Seed:** {paint_seed}\n• **Paint Index:** {paint_index}\n• **Float Value:** {float_value:.6f}\n\nDziękujemy za korzystanie z naszej usługi! Jeśli potrzebujesz dalszej pomocy, daj nam znać."
+    },
+    "price_chart": {
+      "PRICE_CHART_PERIOD_TEXT": "📊 <b>Wybierz okres wykresu cen</b>\nProszę wybierz okres czasu, aby wygenerować wykres cen dla wybranego przedmiotu:",
+      "FAIL_GENERATE_CHART": "❌ Nie udało się wygenerować wykresu.",
+      "PRICE_CHART_REPORT": "💬 <b>{inspected_item} Ceny za {period}</b>\n\n🟢 <b>Maksymalna cena:</b>\n• <b>{converted_max_price} {currency_name}</b> / {max_price} USD\n• Sprzedano: {sales_at_max_price} szt.\n\n🔴 <b>Minimalna cena:</b>\n• <b>{converted_min_price} {currency_name}</b> / <b>{min_price} USD</b>\n• Sprzedano: <b>{sales_at_min_price} szt.</b>\n\n🟡 <b>Średnia cena:</b>\n• <b>{converted_avg_price} {currency_name}</b> / <b>{avg_price} USD</b>\n• Sprzedano: <b>{sales_at_avg_price} szt.</b>\n\n<b>Łącznie sprzedano:</b> {total_sales} szt.\n\n<b>Kurs:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Aktualizacja:</b> {exchange_time}"
+    },
+    "compare_prices": {
+      "MARKET_PRICES": "💬 <b>{item} | Ceny na rynkach</b>\n\n<b>🔸Steam:</b>\n|- Min. cena: <u><b>{steam_min_price}</b></u>\n|- Śr. cena: <b>{steam_average_price}</b>\n|- Ofert: <b>{steam_offers}</b>\n\n<b>🔹DMarket:</b>\n|- Min. cena: <b><u>{dmarket_converted_min_price} {currency_name}</u></b>\n|- Śr. cena: <b>{dmarket_converted_average_price} {currency_name}</b>\n|- Ofert: <b>{dmarket_offers}</b>\n\n<b>1 USD = {dmarket_converted_ratio} {currency_name}</b>\n<code>{dmarket_exchange_time}</code>"
+    },
+    "check_liquidity": {
+      "LIQUIDITY_REPORT": "💧 <b>Sprawdzenie płynności</b>\n\n🏆 <b>Najwyższe zapotrzebowanie na zakup:</b> {highest_buy_order} lub niżej\n🏷️ <b>Najniższa oferta sprzedaży:</b> {lowest_sell_order} (po opłatach: {highest_sell_order_no_fee})\n\n⚖️ <b>Status marży:</b> {margin_status}\n💼 <b>Wartość marży:</b> {margin_value} ({margin}%)\n\n📈 Podejmuj mądre decyzje handlowe dzięki tym informacjom!"
+    },
+    "other": {
+      "COMING_SOON": "🚧 *Wkrótce!*\n\nPracujemy ciężko, aby dostarczyć Ci tę funkcję. Śledź aktualizacje!"
+    }
+  },
+  "tt": {
+    "buttons": {
+      "GET_STARTED": "Башлау",
+      "BACK_BUTTON": "« Кире",
+      "INSPECT_ITEM_BUTTON": "Предметны тикшерү",
+      "FLOAT_CHECKER_BUTTON": "Float тикшерү",
+      "INVENTORY_VALUE_BUTTON": "Инвентар бәясе",
+      "GET_PREMIUM_BUTTON": "⭐️ Premium алу",
+      "SUPPORT_BUTTON": "Ярдәм",
+      "SETTINGS_BUTTON": "⚙️ Настройкалар",
+      "COMPARE_PRICES_BUTTON": "Бәяләрне чагыштырырга",
+      "PRICE_CHART_BUTTON": "Бәя графигы",
+      "PRICE_ALERT_BUTTON": "Бәя кисәтүе",
+      "CHECK_LIQUIDITY_BUTTON": "Ликвидлыкны тикшерергә",
+      "ADD_TO_FAVORITE_BUTTON": "Яратканга өстәү🌟",
+      "CHANGE_ITEM_BUTTON": "🔄 Предметны үзгәртү",
+      "BACK_TO_MAIN_BUTTON": "« Төпкә кире",
+      "FAVORITES_BUTTON": "🌟 Яратканнар",
+      "SWITCH_GAME_BUTTON": "🔄 Уйынды алыштыру",
+      "DELETE_CONFIRM_BUTTON": "✅ Әйе, бетерергә",
+      "LANGUAGE_BUTTON": "🌍 Тел",
+      "CURRENCY_BUTTON": "💰 Валюта",
+      "CANCEL_BUTTON": "❌ Баш тартырга",
+      "PERIOD_DAY_BUTTON": "1К",
+      "PERIOD_WEEK_BUTTON": "1А",
+      "PERIOD_MONTH_BUTTON": "1А",
+      "PERIOD_ALL_BUTTON": "Бөтенесе"
+    },
+    "errors": {
+      "DATA_ERROR": "❌ *Упс! Моментта мәгълүматны алу мөмкин булмады.*\n\nЗинһар, соңрак кабатлап карагыз, әгәр дә проблема дәвам итсә, безнең ярдәм төркеме белән элемтәгә керегез.",
+      "ERROR_NOT_FOUND": "Хмм, мин бу предметны таба алмадым. Мөгаен, ул башка уйыннандыр? Тикшереп, яңадан тырышыгыз!",
+      "ERROR_INVALID_ITEM": "Күрәсең, мин бу предметны таба алмадым. Детальләрне тикшереп, яңадан тырышыгыз.",
+      "ERROR_INVALID_GAME": "Упс! Бу предмет башка уйынга караган кебек күренә. Зинһар, дөрес уйында эзләп карагыз.",
+      "ERROR_TIMEOUT": "Гафу итегез, җавап алу озакка сузылды. Зинһар, бераз вакыттан соң кабатлап карагыз!",
+      "ERROR_JSON_DECODE": "Упс, мәгълүматны эшкәртүдә нидер хата чыкты. Кызыксыну белән яңадан тырышыгыз!",
+      "ERROR_ITEM_EXISTS": "🙃 Бу предмет инде сезнең яратканнар исемлегендә. Аны яңадан өстәү кирәкми!",
+      "ERROR_USER_NOT_FOUND": "Хмм, мин бу кулланучыны таба алмадым. Мөгаен, ID ны тикшереп карагыз?",
+      "ERROR_EMPTY_FAVORITE": "*Сезнең яратканнар исемлеге хәзер буш.*\n Аларны күзәтеп бару өчен кайбер предметлар өстәгез!"
+    },
+    "inspect_menu": {
+      "INSPECT_ITEM_MENU": "🔗 *Предметны тикшерү менюсы!*\nТикшерү өчен предмет сайлап башлыйк\n\n*Предметны ничек сайларга телисез?*\n🔍 *Эзләү:* Предмет исемен кертегез яки аның сылтамасын куйыгыз\n🌟 *Яратканнар:* Сакланган яраткан предметнардан сайлагыз\n\n🎮 *Сайланган уйын:* _{game_name}_\n\n",
+      "CURRENTLY_INSPECTING_ITEM": "🔍 *Сез хәзер тикшерәсез:* *{inspected_item}*\nБу предмет детальле карау өчен әзер.\n\n*Детальләргә тирәнрәк керергә курыкмагыз*\n*фәкать түбәндәге менюдагы вариантларны кулланыгыз* 👇\n\n",
+      "STEAM_SUCCESS_MESSAGE": "✅ Мәгълүмат уңышлы йөкләнде",
+      "STEAM_PERIOD_FALLBACK_MESSAGE": "😊 Упс! Сайланган чор өчен мәгълүмат юк.\n🔄 Без кулландык чорны: {used_period}.",
+      "EMPTY_FAVORITES_LIST": "🧐 *Сезнең яратканнар исемлеге буш кебек күренә*\n*Предметларны соңрак җиңел өсти аласыз!*",
+      "RESET_INSPECTED_ITEM": "✅ *Предмет уңышлы үзгәртелде!*",
+      "ADD_TO_FAVORITE_SUCCESS": "🌟 *Предмет яратканнарга өстәлде!*",
+      "SWITCH_GAME": "🎮 *Уйынды алыштыру*\n\n*Яңа нәрсәләрне өйрәнәсегез киләме?*\nГади генә сезнең алыштырырга теләгән уйынды сайлагыз.",
+      "GAME_SWITCHED": "✅ *Уйын алыштырылды:* {game_name}",
+      "FAVORITES_SELECTION": "🌟 *Яратканнардан предмет сайлагыз:*",
+      "NO_GAME_DATA_ERROR": "❌ *Хата:* Уйын мәгълүматлары табылмады."
+    },
+    "main_menu": {
+      "WELCOME_TEXT": "🔥 *Steamy'га рәхим итегез!*\nСезне монда күрү шатлыклы! Башлыйк.\n\n👇 Түбәндәге вариантлардан берсен сайлагыз, һәм без шунда ук эшкә керешербез!\n*Сезгә нәрсә кирәк булса, мин һәрвакыт монда.*"
+    },
+    "settings_menu": {
+      "SETTINGS_MENU_TEXT": "⚙️ *Настройкалар менюсы*\n\nМонда сез барлык өстенлекләрегезне көйли аласыз.\nТынычланып барлык вариантларны өйрәнегез!",
+      "SELECT_LANGUAGE_TEXT": "🌐 *Телегезне сайлагыз*\n\nКушымтада кулланырга теләгән телегезне сайлагыз.\nСайланганнан соң, ул интерфейсның барлык элементларына кулланылачак.",
+      "SELECT_CURRENCY_TEXT": "💰 *Валютаны сайлагыз*\n\nКушымтада күрсәтергә теләгән валютаны сайлагыз.\nСайланганнан соң, бу бөтен бәя күрсәтмәләренә кулланылачак.",
+      "CURRENCY_UPDATE_CONFIRMATION": "✅ Сезнең валюта яңартылды!"
+    },
+    "setup": {
+      "SETUP_LANGUAGE_TEXT": "⚙️ *Күчереп карагыз, өстенлекләрегезне тиз көйләтик!*\nБу көйләү 10 секундтан артык булмас.\n\n*📌 Адым 1 / 4*\n*Зинһар, телегезне сайлагыз.*\nБу сайлау сезнең бот белән ничек аралашырга билгеләячәк\n\n☺️   *Курыкмагыз, аны соңрак настройкалардан үзгәртә аласыз*",
+      "SETUP_CURRENCY_TEXT": "⚙️ *Өстенлекләрегезне көйләгез*\n\n📌 *Адым 2 / 4*\n*Зинһар, теләгән валютаны сайлагыз.*\n*Бу сайлау предмет кыйммәтләрен ботта ничек күрсәтелүен билгеләячәк*\n\n☺️   *Курыкмагыз, аны соңрак настройкалардан үзгәртә аласыз*",
+      "SETUP_STEP3_TEXT": "⚙️ *Өстенлекләрегезне көйләгез*\n\n📌 *Адым 3 / 4*\n*Зинһар, теләгән регионны яки өстәмә настройкаларны сайлагыз.*\n\n☺️   *Курыкмагыз, аны соңрак настройкалардан үзгәртә аласыз*",
+      "SETUP_GAME_TEXT": "⚙️ *Өстенлекләрегезне көйләгез*\n\n📌 *Адым 4 / 4*\n*Зинһар, теләгән уйынды сайлагыз.*\n\n☺️   *Курыкмагыз, аны соңрак настройкалардан үзгәртә аласыз*",
+      "SETUP_COMPLETION_TEXT": "🤩 *Фантастик яңалыклар!*\n\n*Сезнең бот әзер һәм сезне көтә.*\nКереп, аның барлык кызыклы функцияләрен өйрәнегез!\n\n🚀  *Ботны кулланырга башлау өчен, түбәндәге төймәгә хәзер басыгыз!!*"
+    },
+    "start_menu": {
+      "START_TEXT": "👋🏻 *Сәлам, мин Steamy.*\n Сезгә тәкъдимнәр табарга, бәяләрне күзәтергә һәм инвентарьны идарә итәргә ярдәм итәм\n\n😏 *Мин сезгә нәрсә эшли алам?*\n\n•  *Бәяләрне чагыштыру:* Платформалар арасында иң яхшы тәкъдимнәрне табыгыз.\n•  *График анализы:* Бәя тенденцияләрен күзәтегез һәм анализлагыз.\n•  *Ликвидлыкны тикшерү:* Предметнәрне ничек җиңел сатарга мөмкин икәнен карагыз.\n•  *Бәя кисәтүләре:* Бәя үзгәрешләре турында хәбәрләр алыгыз.\n•  *Float мәгълүматы:* Float кыйммәтләре белән предмет сыйфатын тикшерегез.\n•  *Иң яхшы Float эзләү:* Float тәкъдимнәрен табыгыз\n\n*Тикшерергә әзерме? Башлыйк!* 🚀"
+    },
+    "check_float": {
+      "CHECK_FLOAT_TEXT": "🔍 *Float тикшерү*\n\nПредметыгызның Float кыйммәтен табарга ярдәм итү өчен, зинһар, Steam'нан 'rungame' сылтамасын җибәрегез.\n\n*Моны ничек алырга була:*\n1. Инвентарегездәге предметга уң төймә белән басыгыз.\n2. *Уйында тикшерү* сайлагыз.\n3. Браузерның адрес юлындагы сылтаманы күчерегез.\n4. Монда куйып безгә җибәрегез.\n\nӘгәр ярдәм кирәк булса, сорарга курыкмагыз!",
+      "INVALID_RUNGAME_LINK": "⚠️ *Хмм, бу дөрес 'rungame' сылтамасы түгел кебек.*\n\nSteam'нан дөрес сылтама җибәргәнегезгә инаныгыз. Әгәр ярдәм кирәк булса, аны ничек алырга була:\n1. Инвентарегездәге предметга уң төймә белән басыгыз.\n\n2. *Уйында тикшерү* сайлагыз.\n3. Браузердан сылтаманы күчерегез һәм монда җибәрегез.",
+      "ITEM_DETAILS": "🎉 *Предметыгызның детальләре:*\n\n• **Paint Seed:** {paint_seed}\n• **Paint Index:** {paint_index}\n• **Float Value:** {float_value:.6f}\n\nХезмәтебезне кулланган өчен рәхмәт! Әгәр өстәмә ярдәм кирәк булса, безгә хәбәр итегез."
+    },
+    "price_chart": {
+      "PRICE_CHART_PERIOD_TEXT": "📊 <b>Бәя графигы өчен периодны сайлагыз</b>\nЗинһар, сайланган предмет өчен бәя графигын төзү өчен вакыт периоды сайлагыз:",
+      "FAIL_GENERATE_CHART": "❌ График төзергә мөмкин булмады.",
+      "PRICE_CHART_REPORT": "💬 <b>{inspected_item} {period} бәяләре</b>\n\n🟢 <b>Максималь бәя:</b>\n• <b>{converted_max_price} {currency_name}</b> / {max_price} USD\n• Сатылды: {sales_at_max_price} шт.\n\n🔴 <b>Минималь бәя:</b>\n• <b>{converted_min_price} {currency_name}</b> / <b>{min_price} USD</b>\n• Сатылды: <b>{sales_at_min_price} шт.</b>\n\n🟡 <b>Уртача бәя:</b>\n• <b>{converted_avg_price} {currency_name}</b> / <b>{avg_price} USD</b>\n• Сатылды: <b>{sales_at_avg_price} шт.</b>\n\n<b>Барлыгы сатылды:</b> {total_sales} шт.\n\n<b>Курс:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Яңартылды:</b> {exchange_time}"
+    },
+    "compare_prices": {
+      "MARKET_PRICES": "💬 <b>{item} | Базар бәяләре</b>\n\n<b>🔸Steam:</b>\n|- Мин. бәя: <u><b>{steam_min_price}</b></u>\n|- Уртача бәя: <b>{steam_average_price}</b>\n|- Тәкъдимнәр: <b>{steam_offers}</b>\n\n<b>🔹DMarket:</b>\n|- Мин. бәя: <b><u>{dmarket_converted_min_price} {currency_name}</u></b>\n|- Уртача бәя: <b>{dmarket_converted_average_price} {currency_name}</b>\n|- Тәкъдимнәр: <b>{dmarket_offers}</b>\n\n<b>1 USD = {dmarket_converted_ratio} {currency_name}</b>\n<code>{dmarket_exchange_time}</code>"
+    },
+    "check_liquidity": {
+      "LIQUIDITY_REPORT": "💧 <b>Ликвидлыкны тикшерү</b>\n\n🏆 <b>Иң югары сатып алу соравы:</b> {highest_buy_order} яки түбәнрәк\n🏷️ <b>Иң түбән сатылу тәкъдиме:</b> {lowest_sell_order} (комиссиядән соң: {highest_sell_order_no_fee})\n\n⚖️ <b>Маржа статусы:</b> {margin_status}\n💼 <b>Маржа кыйммәте:</b> {margin_value} ({margin}%)\n\n📈 Бу мәгълүматлар белән акыллы сәүдә карарлары кабул итегез!"
+    },
+    "other": {
+      "COMING_SOON": "🚧 *Бик тиз!*\n\nБез сезнең өчен бу функцияне китерү өстендә тырышабыз. Яңартуларны күзәтеп барыгыз!"
+    }
+  }
+}

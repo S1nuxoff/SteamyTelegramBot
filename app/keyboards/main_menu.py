@@ -1,23 +1,22 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from aiogram.utils.keyboard import InlineKeyboardBuilder
+from app.localization import localization, get_text
 
-
-async def main_menu() -> InlineKeyboardMarkup:
+async def main_menu(user_language) -> InlineKeyboardMarkup:
 
     keyboard = [
         [
-            InlineKeyboardButton(text="Inspect Item", callback_data="inspect_menu"),
-            InlineKeyboardButton(text="Float Checker", callback_data="check_float"),
+            InlineKeyboardButton(text=get_text(user_language, 'buttons.INSPECT_ITEM_BUTTON'), callback_data="inspect_menu"),
+            InlineKeyboardButton(text=get_text(user_language, 'buttons.FLOAT_CHECKER_BUTTON'), callback_data="check_float"),
         ],
         [
             InlineKeyboardButton(
-                text="Inventory Value", callback_data="inventory_value"
+                text=get_text(user_language, 'buttons.INVENTORY_VALUE_BUTTON'), callback_data="inventory_value"
             ),
-            InlineKeyboardButton(text="⭐️ Get Premium", callback_data="get_premium"),
+            InlineKeyboardButton(text=get_text(user_language, 'buttons.GET_PREMIUM_BUTTON'), callback_data="get_premium"),
         ],
         [
-            InlineKeyboardButton(text="Support", url="https://t.me/sinuxoff"),
-            InlineKeyboardButton(text="⚙️ Settings", callback_data="settings_menu"),
+            InlineKeyboardButton(text=get_text(user_language, 'buttons.SUPPORT_BUTTON'), url="https://t.me/sinuxoff"),
+            InlineKeyboardButton(text=get_text(user_language, 'buttons.SETTINGS_BUTTON'), callback_data="settings_menu"),
         ],
     ]
 

@@ -23,7 +23,6 @@ async def clear_url(url, appid):
     match = re.search(appid_pattern, url)
 
     url_appid = int(match.group(1))
-    print(url_appid)
 
     if url_appid != appid:
         return False

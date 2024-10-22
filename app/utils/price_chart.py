@@ -257,25 +257,7 @@ async def price_chart(appid, inspected_item, period, currency_id, currency_name)
     converted_avg_price = round(data.get("avg_price") * ratio, 2)
     converted_ratio = round(ratio, 2)
 
-    # Формируем текст отчета о ценах
-    price_report = (
-        f"💬 <b>{inspected_item} {period} prices</b>\n\n"
-        f"🟢 <b>Max Price:</b>\n"
-        f"• <b>{converted_max_price} {currency_name}</b> / {data.get('max_price', 'N/A')} USD\n"
-        f"• Sold: {data.get('sales_at_max_price')} units\n\n"
-        f"🔴 <b>Min Price:</b>\n"
-        f"• <b>{converted_min_price} {currency_name}</b> / <b>{data.get('min_price', 'N/A')} USD</b>\n"
-        f"• Sold: <b>{data.get('sales_at_min_price')} units</b>\n\n"
-        f"🟡 <b>Avg Price:</b>\n"
-        f"• <b>{converted_avg_price} {currency_name}</b> / <b>{data.get('avg_price', 'N/A')} USD</b>\n"
-        f"• Sold: <b>{data.get('sales_at_avg_price')} units</b>\n\n"
-        f"<b>Total Sold:</b> {data.get('total_sales', 'N/A')} units\n\n"
-        f"<b>Rate:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n"
-        f"<b>Updated</b> {exchange_time}"
-    )
-
     return {
-        "message": price_report,
         "chart_path": chart_path,
         "max_price_usd": data.get("max_price"),
         "sales_at_max_price": data.get("sales_at_max_price"),

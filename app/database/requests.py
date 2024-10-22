@@ -182,13 +182,12 @@ async def set_currency(tg_id: int, currency_id: int):
             user.currency = currency_id
         await session.commit()
 
-
-async def set_language(tg_id, language_id):
+async def set_language(tg_id: int, language_id: int):
     async with async_session() as session:
-
-        user = await session.scalar(select(User).where(User.tg_id == tg_id))
-
-        session.add(User(language=language_id))
+        async with session.begin():
+            result = await session.execute(select(User).where(User.tg_id == tg_id))
+            user = result.scalars().first()
+            user.language = language_id
         await session.commit()
 
 
@@ -210,6 +209,13 @@ async def get_state(tg_id):
 
         # Получаем премиум статус пользователя
         premium = await session.scalar(select(User.premium).where(User.tg_id == tg_id))
+
+        # Получаем язык пользователя
+        language_code = await session.scalar(
+            select(Language.language_code)
+            .join(User, User.language == Language.id)
+            .where(User.tg_id == tg_id)
+        )
 
         # Если state не установлен, возвращаем setup_status как False
         if not state_result:
@@ -262,7 +268,8 @@ async def get_state(tg_id):
             "premium": premium,
             "setup_status": setup_status,
             "currency": currency_id,
-            "currency_name": currency_name,  # Добавляем имя валюты в ответ
+            "currency_name": currency_name,
+            "language": language_code,
         }
 
         return data
@@ -323,13 +330,12 @@ async def get_languages():
         else:
             return [
                 {
-                    "id": Language.id,
-                    "name": Language.name,
-                    "language_code": Language.language_code,
+                    "id": language.id,
+                    "name": language.name,
+                    "language_code": language.language_code,
                 }
-                for currency in data
+                for language in data
             ]
-
 
 async def get_currencies():
     async with async_session() as session:
