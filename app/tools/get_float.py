@@ -26,13 +26,3 @@ async def get_float_data(item_url):
     except aiohttp.ClientError as e:
         raise Exception(f"Error fetching float data: {e}")
 
-
-# Example of how to call the async function
-async def main():
-    await get_float_data(
-        "steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20M5383580983543635881A23316542101D17167834902600010579"
-    )
-
-
-# Running the async function
-asyncio.run(main())

@@ -1,5 +1,6 @@
 import os
-import random
+from datetime import datetime
+import platform
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates
@@ -9,11 +10,7 @@ from scipy.interpolate import make_interp_spline
 import matplotlib.image as mpimg
 from matplotlib.colors import LinearSegmentedColormap
 
-from datetime import datetime
-import app.database.requests as rq
-from app.api.steam import get_item_html
-
-# from app.utils.currency_exchanger import convert_prices
+from app.api.steam.sales import get_sales_history
 
 import random
 
@@ -183,18 +180,7 @@ def _save_chart_image(fig, item_name, period):
 
 # Функция для градиентной заливки под кривой с кастомной cmap
 def _gradient_fill(ax, dates, prices, y_start, y_max, cmap):
-    """
-    Создает вертикальную градиентную заливку под кривой.
 
-    Параметры:
-    - ax: matplotlib ось для рисования.
-    - dates: Массив значений дат (числовой формат).
-    - prices: Массив значений цен, соответствующих датам.
-    - y_start: Начальное y-значение для градиента.
-    - y_max: Максимальное y-значение для градиента.
-    - cmap: Кастомная цветовая карта.
-    """
-    # Создание пути для заливки
     verts = np.column_stack([dates, prices])
     verts = np.vstack(
         [[dates[0], y_start], verts, [dates[-1], y_start], [dates[0], y_start]]
@@ -229,45 +215,52 @@ def _gradient_fill(ax, dates, prices, y_start, y_max, cmap):
     )
 
 
-async def price_chart(appid, inspected_item, period, currency_id, currency_name):
-    data = await get_item_html(appid, inspected_item, period, currency_id)
+async def price_chart(appid, inspected_item, period, currency_id):
+    data = await get_sales_history(appid, inspected_item, period, currency_id)
 
-    symbol = "$"
-    dates = data.get("dates")
-    prices = data.get("prices")  # Список цен для графика
-    period = data.get("period")
+    if not data.get("Success"):
+        error_message = data.get("error", "Unknown error occurred while fetching sales history.")
 
-    # Формируем словарь для передачи в функцию convert_prices
-    price_dict = {
-        "max_price": data.get("max_price"),
-        "min_price": data.get("min_price"),
-        "avg_price": data.get("avg_price"),
-    }
+
+        return {"Success": False, "error": error_message}
+
+    sales = data["data"]["sales"]
+
+    filter_period = data["data"]["filter_period"]
+    ratio = data["data"]["ratio"]
+    exchange_time = data["data"]["ratio_time"]
+
+    dt_object = datetime.fromisoformat(exchange_time)
+    if platform.system() == "Windows":
+        # Windows does not support %-d, use %#d instead
+        formatted_exchange_time = dt_object.strftime("%b %#d, %Y, %I:%M %p")
+    else:
+        # Unix-based systems support %-d
+        formatted_exchange_time = dt_object.strftime("%b %-d, %Y, %I:%M %p")
+
+    dates = sales["dates"]
+    prices = sales["prices"]
+
+
+    # Ensure 'symbol' is defined or passed as a parameter
+    # Assuming 'symbol' should be 'currency_id', adjust as needed
+    symbol = "$"  # Replace with actual symbol if different
 
     chart_path = await create_price_chart(dates, prices, inspected_item, period, symbol)
 
-    exchange_ratio = await rq.get_currency_ratio(currency_id)
-
-    ratio = exchange_ratio.get("ratio")
-    exchange_time = datetime.fromisoformat(exchange_ratio.get("time")).strftime(
-        "%d %B %Y, %H:%M"
-    )
-    converted_max_price = round(data.get("max_price") * ratio, 2)
-    converted_min_price = round(data.get("min_price") * ratio, 2)
-    converted_avg_price = round(data.get("avg_price") * ratio, 2)
     converted_ratio = round(ratio, 2)
 
-    return {
-        "chart_path": chart_path,
-        "max_price_usd": data.get("max_price"),
-        "sales_at_max_price": data.get("sales_at_max_price"),
-        "min_price_usd": data.get("min_price"),
-        "sales_at_min_price": data.get("sales_at_min_price"),
-        "avg_price_usd": data.get("avg_price"),
-        "total_sales": data.get("total_sales"),
-        "converted_max_price": converted_max_price,
-        "converted_min_price": converted_min_price,
-        "converted_avg_price": converted_avg_price,
+    report = {
+        "max": sales["max"],
+        "max_volume": sales["max_volume"],
+        "min": sales["min"],
+        "min_volume": sales["min_volume"],
+        "avg": sales["avg"],
+        "avg_volume": sales["avg_volume"],
+        "volume": sales["volume"],
         "converted_ratio": converted_ratio,
-        "exchange_time": exchange_time,
+        "exchange_time": formatted_exchange_time,
+        "filter_period": filter_period,
+        "chart_path": chart_path,
     }
+    return {"Success": True, "report": report}

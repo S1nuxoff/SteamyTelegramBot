@@ -4,7 +4,7 @@ from aiogram.fsm.context import FSMContext
 from typing import Union
 
 from app.utils.errors import get_error_message
-from app.api.steam import item_exists
+from app.api.steam.steam import item_exists
 from app.keyboards import (
     inspect_menu,
     setup_inspect_mode,
@@ -15,7 +15,7 @@ from app.keyboards import (
 from app.states import SetupItemToInspect
 
 import app.database.requests as rq
-from app.localization import localization, get_text
+from app.localization import get_text
 
 inspect_menu_router = Router()
 
@@ -158,25 +158,6 @@ async def reset_inspected_item(callback: CallbackQuery, state: FSMContext):
     await callback.answer(get_text(user_language, 'inspect_menu.RESET_INSPECTED_ITEM'), show_alert=False)
     await show_inspect_menu(callback, state)
 
-
-@inspect_menu_router.callback_query(F.data.startswith("add_to_favorite"))
-async def add_to_favorite(callback: CallbackQuery, state: FSMContext):
-    user_id = callback.from_user.id
-    user_data = await rq.get_state(user_id)
-    sel_game_data = user_data.get("sel_game_data")
-    item = user_data.get("inspected_item")
-
-    # Retrieve user_language from the state
-    state_data = await state.get_data()
-    user_language = state_data.get('user_language', user_data.get('language'))
-
-    result = await rq.add_favorite(user_id, sel_game_data.get("steam_id"), item)
-    if result["success"]:
-        await callback.answer(get_text(user_language, 'inspect_menu.ADD_TO_FAVORITE_SUCCESS'), parse_mode="Markdown",
-                              show_alert=False)
-    else:
-        error_message = get_error_message(result["error"], details=result.get("details", ""))
-        await callback.answer(error_message, show_alert=True)
 
 
 @inspect_menu_router.callback_query(F.data.startswith("sel_from_favorites"))

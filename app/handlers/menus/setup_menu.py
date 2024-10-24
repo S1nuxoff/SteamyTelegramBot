@@ -1,4 +1,4 @@
-# app/handlers/setup.py
+# app/handlers/setup_menu.py
 
 from aiogram import Router, F
 from aiogram.types import CallbackQuery
@@ -7,8 +7,8 @@ from app.keyboards import language, currency, game, setup_done
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import StateFilter
 from app.states import SetupStates
-from app.handlers.main_menu import show_main_menu
-from app.localization import localization, get_text
+from app.handlers.menus.main_menu import show_main_menu
+from app.localization import get_text
 
 setup_router = Router()
 
