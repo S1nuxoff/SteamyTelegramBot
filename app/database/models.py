@@ -1,10 +1,10 @@
 from sqlalchemy import BigInteger, JSON, ForeignKey, Boolean, DateTime, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
+from config import DATABASE_URL
 
-# engine = create_async_engine(url="sqlite+aiosqlite:///db.sqlite3")
 engine = create_async_engine(
-    url="postgresql+asyncpg://steamy:Afynjv228@185.93.6.180:5432/steamy_db"
+    url=DATABASE_URL
 )
 async_session = async_sessionmaker(engine)
 
