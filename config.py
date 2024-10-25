@@ -1,11 +1,15 @@
 # API'S
+import os
+from dotenv import load_dotenv
 
-TOKEN = "7812496532:AAFQr8miVkgKP85auD-CeP7iu9AuKsUVcXc"
-DMARKET_API = "7c8c7ec17c13af1c4db239f8d58f3f96f6b185c51cb4584598aa025f40662c181d6cf0a9bf804ea7d073857005b53c423da44f65701a046cd0ef33a938a80e05"
-SHADOWPAY_API = "c29c4937ab89659a3342a028e5086863"
+load_dotenv()
+
+TOKEN = os.getenv("TOKEN")
+DMARKET_API = os.getenv("DMARKET_API")
+SHADOWPAY_API = os.getenv("SHADOWPAY_API")
+STEAM_WEB_API = os.getenv("STEAM_WEB_API")
 
 steam_commission_rate = 0.1233
-
 
 STEAM_BASE_URL = "https://steamcommunity.com/market/listings"
 ITEM_ORDERS_HISTOGRAM_URL = "https://steamcommunity.com/market/itemordershistogram"
