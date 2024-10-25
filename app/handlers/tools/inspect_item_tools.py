@@ -8,7 +8,7 @@ from app.tools.compare_prices import compare_price
 from app.keyboards import chart_period, back
 from app.tools.price_chart import price_chart
 from app.tools.check_liquidity import check_liquidity
-from app.localization import get_text
+from app.utils.localization import get_text
 from app.utils.errors import get_error_message
 inspect_item_tools_router = Router()
 

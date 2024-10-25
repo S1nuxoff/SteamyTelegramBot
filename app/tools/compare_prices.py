@@ -1,5 +1,5 @@
 import asyncio
-from app.api.steam.steam import get_price
+from app.api.steam.requests import get_price
 from app.api.dmarket.dmarket import get_dmarket_price
 from app.utils.errors import get_error_message
 from datetime import datetime

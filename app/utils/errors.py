@@ -1,5 +1,5 @@
 from enum import Enum
-from app.localization import localization, get_text
+
 
 class ErrorCode(Enum):
     NOT_FOUND = "not_found"

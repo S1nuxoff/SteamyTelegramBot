@@ -6,9 +6,9 @@ import app.database.requests as rq
 from app.keyboards import language, currency, game, setup_done
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import StateFilter
-from app.states import SetupStates
+from app.states.states import SetupStates
 from app.handlers.menus.main_menu import show_main_menu
-from app.localization import get_text
+from app.utils.localization import get_text
 
 setup_router = Router()
 

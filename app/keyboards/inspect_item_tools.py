@@ -1,8 +1,7 @@
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from app.localization import localization, get_text
+from app.utils.localization import get_text
 
 
 async def inspect_menu(user_language) -> InlineKeyboardMarkup:

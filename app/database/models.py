@@ -1,4 +1,4 @@
-from sqlalchemy import BigInteger, JSON, ForeignKey, Boolean
+from sqlalchemy import BigInteger, JSON, ForeignKey, Boolean, DateTime, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
 
@@ -17,15 +17,15 @@ class User(Base):
     __tablename__ = "users"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    tg_id: Mapped[int] = mapped_column(BigInteger)
-    steam_id: Mapped[str] = mapped_column()
-    username: Mapped[str] = mapped_column()
-    favorite: Mapped[list] = mapped_column(JSON)
-    language: Mapped[int] = mapped_column(ForeignKey("languages.id"))
-    currency: Mapped[int] = mapped_column(ForeignKey("currencies.id"))
-    premium: Mapped[bool] = mapped_column(Boolean)
-    state: Mapped[list] = mapped_column(JSON)
-
+    tg_id: Mapped[int] = mapped_column(BigInteger, unique=True, index=True, nullable=False)
+    steam_id: Mapped[str] = mapped_column(String, nullable=False)
+    username: Mapped[str] = mapped_column(String, nullable=False)
+    favorite: Mapped[list] = mapped_column(JSON, default=[])
+    language: Mapped[int] = mapped_column(ForeignKey("languages.id"), nullable=False)
+    currency: Mapped[int] = mapped_column(ForeignKey("currencies.id"), nullable=False)
+    premium: Mapped[bool] = mapped_column(Boolean, default=False)
+    state: Mapped[list] = mapped_column(JSON, default={})
+    activity: Mapped[DateTime] = mapped_column(DateTime, nullable=True)  # Новое поле
 
 class Game(Base):
     __tablename__ = "games"

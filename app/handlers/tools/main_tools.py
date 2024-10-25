@@ -2,11 +2,11 @@ from aiogram import Router, F
 from aiogram.types import CallbackQuery, Message
 from aiogram.fsm.context import FSMContext
 
-from app.keyboards import main_menu, back
-from app.states import SetupItemToFloatCheck
+from app.keyboards import back
+from app.states.states import SetupItemToFloatCheck
 from app.tools.get_float import get_float_data
 
-from app.localization import get_text
+from app.utils.localization import get_text
 import app.database.requests as rq
 
 main_tools_router = Router()

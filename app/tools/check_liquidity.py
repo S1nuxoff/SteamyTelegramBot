@@ -1,7 +1,7 @@
 import aiohttp
 import re
 import urllib.parse
-from app.utils.steam import clean_price, calculate_margin
+from app.utils.common import clean_price, calculate_margin
 import app.database.requests as rq
 from config import ITEM_ORDERS_HISTOGRAM_URL, STEAM_BASE_URL
 import json
@@ -34,9 +34,8 @@ async def get_liquidity(currency, nameid):
                 sell_order_after_commission,
                 margin_value,
                 margin_percentage,
-                margin_status,
             ) = await calculate_margin(item_lowest_sell_order, item_highest_buy_order)
-
+            margin_status = "🟢" if margin_value > 0 else "🔴"
             data = {
                 "highest_buy_order": item_highest_buy_order_str,
                 "highest_sell_order_no_fee": sell_order_after_commission,

@@ -1,12 +1,10 @@
 from aiogram import Router, F
-from aiogram.types import CallbackQuery, Message
+from aiogram.types import CallbackQuery
 from aiogram.fsm.context import FSMContext
 
-from app.keyboards import main_menu, back
-from app.states import SetupItemToFloatCheck
-from app.tools.get_float import get_float_data
+from app.keyboards import main_menu
 
-from app.localization import get_text
+from app.utils.localization import get_text
 import app.database.requests as rq
 
 main_menu_router = Router()
@@ -27,6 +25,6 @@ async def show_main_menu(callback: CallbackQuery, state: FSMContext):
     await callback.answer()
 
 @main_menu_router.callback_query(F.data.startswith("main_menu"))
-async def select_main_menu(callback: CallbackQuery, state: FSMContext):
+async def handle_main_menu(callback: CallbackQuery, state: FSMContext):
     await show_main_menu(callback, state)
 

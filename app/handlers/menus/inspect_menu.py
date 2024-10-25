@@ -4,7 +4,7 @@ from aiogram.fsm.context import FSMContext
 from typing import Union
 
 from app.utils.errors import get_error_message
-from app.api.steam.steam import item_exists
+from app.api.steam.requests import item_exists
 from app.keyboards import (
     inspect_menu,
     setup_inspect_mode,
@@ -12,10 +12,10 @@ from app.keyboards import (
     back,
     favorite_items_list,
 )
-from app.states import SetupItemToInspect
+from app.states.states import SetupItemToInspect
 
 import app.database.requests as rq
-from app.localization import get_text
+from app.utils.localization import get_text
 
 inspect_menu_router = Router()
 

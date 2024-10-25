@@ -1,7 +1,7 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from app.database.requests import get_currencies, get_languages
-from app.localization import localization, get_text
+from app.utils.localization import get_text
 
 async def settings_menu(user_language):
     return InlineKeyboardMarkup(

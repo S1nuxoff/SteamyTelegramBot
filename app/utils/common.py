@@ -49,6 +49,5 @@ async def calculate_margin(item_lowest_sell_order, item_highest_buy_order):
     margin_value = round(sell_order_after_commission - item_highest_buy_order, 2)
     margin_percentage = round(
         (margin_value / item_highest_buy_order) * 100
-    )  # Округляем до целого числа
-    margin_status = "🟢" if margin_value > 0 else "🔴"
-    return sell_order_after_commission, margin_value, margin_percentage, margin_status
+    )
+    return sell_order_after_commission, margin_value, margin_percentage

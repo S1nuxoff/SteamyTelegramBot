@@ -190,6 +190,16 @@ async def set_language(tg_id: int, language_id: int):
             user.language = language_id
         await session.commit()
 
+async def update_user_activity(tg_id, time):
+
+    async with async_session() as session:
+        async with session.begin():
+            result = await session.execute(select(User).where(User.tg_id == tg_id))
+            user = result.scalars().first()
+            user.activity = time
+        await session.commit()
+
+
 
 # -------------------------------------------------GET--------------------------------------------------------
 

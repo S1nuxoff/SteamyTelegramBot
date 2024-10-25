@@ -4,7 +4,7 @@ import json
 from datetime import datetime, timedelta
 from typing import List, Tuple, Dict, Any
 
-from app.api.steam.steam import fetch_item_page
+from app.api.steam.requests import fetch_item_page
 import app.database.requests as rq
 
 async def extract_sales_history(html_data):

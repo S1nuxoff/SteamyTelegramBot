@@ -3,7 +3,7 @@ from aiogram.types import CallbackQuery
 from aiogram.fsm.context import FSMContext
 
 from app.keyboards import settings_menu, settings_currency, settings_language
-from app.localization import get_text
+from app.utils.localization import get_text
 
 import app.database.requests as rq
 
