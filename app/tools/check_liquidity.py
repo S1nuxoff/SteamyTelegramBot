@@ -3,8 +3,8 @@ import re
 import urllib.parse
 from app.utils.common import clean_price, calculate_margin
 import app.database.requests as rq
+from backend.api import nameid_endpoint
 from config import ITEM_ORDERS_HISTOGRAM_URL, STEAM_BASE_URL
-import json
 
 regex = re.compile(r"Market_LoadOrderSpread\( (\d+) \)")
 
@@ -30,12 +30,15 @@ async def get_liquidity(currency, nameid):
 
             item_lowest_sell_order = await clean_price(item_lowest_sell_order_str)
             item_highest_buy_order = await clean_price(item_highest_buy_order_str)
+
             (
                 sell_order_after_commission,
                 margin_value,
                 margin_percentage,
             ) = await calculate_margin(item_lowest_sell_order, item_highest_buy_order)
+
             margin_status = "🟢" if margin_value > 0 else "🔴"
+
             data = {
                 "highest_buy_order": item_highest_buy_order_str,
                 "highest_sell_order_no_fee": sell_order_after_commission,
@@ -54,36 +57,41 @@ async def get_liquidity(currency, nameid):
             raise
 
 
-async def check_liquidity(appid, market_hash_name, currency):
-    encoded_market_hash_name = urllib.parse.quote(market_hash_name)
+async def check_liquidity(appid, item, currency):
+    encoded_market_hash_name = urllib.parse.quote(item)
 
     try:
-        item_in_db = await rq.get_item(market_hash_name)
+        item_in_db = await rq.get_item(item)
 
         if not item_in_db:
-            base_url = f"{STEAM_BASE_URL}/{appid}/{encoded_market_hash_name}"
 
             async with aiohttp.ClientSession() as session:
-                async with session.get(base_url) as response:
-                    response.raise_for_status()
-                    html_data = await response.text()
+                async with session.get(
+                        "http://185.93.6.180:8000/nameid",
+                        params={"appid": appid, "item": item}
+                ) as response:
+                    if response.status == 200:
+                        data = await response.json()
+                    else:
+                        data = {"success": False}
 
-            id_match = regex.search(html_data)
-            if not id_match:
-                raise ValueError(f"Unable to find item nameid for {market_hash_name}")
+            nameid = data.get("data")
 
-            nameid = int(id_match.group(1))
-            await rq.add_item(market_hash_name, nameid, appid)
+            await rq.add_item(item, nameid, appid)
             data = await get_liquidity(currency, nameid)
+
         else:
             nameid = item_in_db.get("nameid")
-            if nameid is None:
-                raise ValueError(
-                    f"Missing nameid for {market_hash_name} in the database."
-                )
 
-            data = await get_liquidity(currency, nameid)
-
+            async with aiohttp.ClientSession() as session:
+                async with session.get(
+                        "http://185.93.6.180:8000/liquidity",
+                        params={"nameid": nameid}
+                ) as response:
+                    if response.status == 200:
+                        data = await response.json()
+                    else:
+                        data = {"success": False}
         return data
 
     except Exception as e:

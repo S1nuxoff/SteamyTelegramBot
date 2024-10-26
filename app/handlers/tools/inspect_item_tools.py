@@ -1,4 +1,5 @@
 import os
+import aiohttp
 
 from aiogram import Router, F
 from aiogram.types import CallbackQuery, FSInputFile
@@ -10,38 +11,71 @@ from app.tools.price_chart import price_chart
 from app.tools.check_liquidity import check_liquidity
 from app.utils.localization import get_text
 from app.utils.errors import get_error_message
+
 inspect_item_tools_router = Router()
 
 
 @inspect_item_tools_router.callback_query(F.data.startswith("compare_prices"))
 async def compare_prices_handler(callback: CallbackQuery, state: FSMContext):
+
+    API_URL = "http://185.93.6.180:8000/market_prices"
+
     user_data = await rq.get_state(callback.from_user.id)
     sel_game_data = user_data.get("sel_game_data")
+    appid = sel_game_data.get("steam_id")
     inspected_item = user_data.get("inspected_item")
     currency = user_data.get("currency")
     currency_name = user_data.get("currency_name")
     user_language = user_data.get('language')
 
-    data = await compare_price(sel_game_data, inspected_item, currency)
+    exchange_ratio = await rq.get_currency_ratio(currency)
+    ratio = exchange_ratio.get("ratio", 1)
+    ratio_time = exchange_ratio.get("time")
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(
+            API_URL,
+            params={"appid": appid, "item": inspected_item}
+        ) as response:
+            if response.status == 200:
+                data = await response.json()
+            else:
+                data = {"success": False}
 
     if data["success"]:
-        text_template = get_text(user_language, 'compare_prices.MARKET_PRICES')
-        steam_data = data.get("steam_data", {})
-        dmarket_data = data.get("dmarket_data", {})
-        skinport_data = data.get("skinport_data", {})
-        print(skinport_data)
-        text = text_template.format(
-            item=inspected_item,
-            steam_min_price=steam_data.get("min_price", "N/A"),
-            steam_average_price=steam_data.get("average_price", "N/A"),
-            steam_offers=steam_data.get("offers", "N/A"),
-            dmarket_converted_min_price=dmarket_data.get("converted_min_price", "N/A"),
-            dmarket_converted_average_price=dmarket_data.get("converted_average_price", "N/A"),
-            dmarket_offers=dmarket_data.get("offers", "N/A"),
+        header_template = get_text(user_language, 'compare_prices.MARKET_PRICES_HEADER')
+        market_entry_template = get_text(user_language, 'compare_prices.MARKET_ENTRY')
+        footer_template = get_text(user_language, 'compare_prices.MARKET_PRICES_FOOTER')
+
+        message_parts = []
+        message_parts.append(header_template.format(item=inspected_item))
+
+        for market in data["markets"]:
+            market_name = market.get("market", "Unknown")
+            min_price = round(market.get("min") * ratio, 2)
+            avg_price = round(market.get("avg") * ratio,2)
+            volume = market.get("volume")
+
+            market_entry = market_entry_template.format(
+                market_name=market_name,
+                min_price=min_price,
+                avg_price=avg_price,
+                volume=volume,
+                currency_name=currency_name
+            )
+            message_parts.append(market_entry)
+
+        exchange_rate = round(ratio,2)
+        exchange_time = ratio_time
+
+        footer = footer_template.format(
+            exchange_rate=exchange_rate,
             currency_name=currency_name,
-            dmarket_converted_ratio=dmarket_data.get("converted_ratio", "N/A"),
-            dmarket_exchange_time=dmarket_data.get("exchange_time", "N/A")
+            exchange_time=exchange_time
         )
+        message_parts.append(footer)
+
+        text = ''.join(message_parts)
 
         keyboard = await back("inspect_menu", user_language)
 
@@ -84,6 +118,7 @@ async def handle_chart_period(callback: CallbackQuery, state: FSMContext):
         inspected_item,
         period,
         currency,
+        currency_name,
     )
 
     report = data.get("report", {})

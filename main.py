@@ -1,4 +1,4 @@
-# main.py
+# api.py
 import asyncio
 from aiogram import Bot, Dispatcher
 from config import TOKEN

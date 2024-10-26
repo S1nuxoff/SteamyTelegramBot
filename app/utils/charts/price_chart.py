@@ -8,6 +8,7 @@ from scipy.interpolate import make_interp_spline
 import matplotlib.image as mpimg
 from matplotlib.colors import LinearSegmentedColormap
 import random
+from datetime import datetime
 
 
 def create_custom_cmap():
@@ -20,11 +21,11 @@ def create_custom_cmap():
     return custom_cmap
 
 
-def _annotate_price(ax, time, price, currency_symbol, color, offset):
-    ax.scatter([time], [price], color=color, s=20, zorder=5)
+def _annotate_price(ax, time, position_price, display_price, currency_symbol, color, offset):
+    ax.scatter([time], [position_price], color=color, s=20, zorder=5)
     ax.annotate(
-        f"{price:.2f} {currency_symbol}",
-        (time, price),
+        f"{display_price:.2f} {currency_symbol}",
+        (time, position_price),
         textcoords="offset points",
         xytext=(0, offset),
         ha="center",
@@ -122,7 +123,7 @@ def _gradient_fill(ax, dates, prices, y_start, y_max, cmap):
     )
 
 
-async def create_price_chart(dates, prices, item_name, period, currency_symbol):
+async def create_price_chart(dates, prices, item_name, period, currency_symbol, ratio):
     if len(dates) < 2:
         return None
 
@@ -141,11 +142,21 @@ async def create_price_chart(dates, prices, item_name, period, currency_symbol):
         prices_smooth = prices
         dates_smooth = matplotlib.dates.date2num(dates)
 
+    # Вычисление минимальной и максимальной цены
     min_price = prices.min()
     max_price = prices.max()
     min_index = np.argmin(prices)
     max_index = np.argmax(prices)
     min_time, max_time = dates[min_index], dates[max_index]
+
+    # Рассчитываем скорректированные цены
+    adjusted_min_price = round(min_price * ratio, 2)
+    adjusted_max_price = round(max_price * ratio, 2)
+
+    # Последняя цена
+    last_price = prices[-1]
+    last_time = dates[-1]
+    adjusted_last_price = round(last_price * ratio, 2)
 
     y_start = max(min_price - 1, min_price * 0.9)
 
@@ -166,12 +177,12 @@ async def create_price_chart(dates, prices, item_name, period, currency_symbol):
     custom_cmap = create_custom_cmap()
     _gradient_fill(ax, dates_smooth, prices_smooth, y_start, max_price, custom_cmap)
 
-    _annotate_price(ax, min_time, min_price, currency_symbol, "#F6465D", offset=-24)
-    _annotate_price(ax, max_time, max_price, currency_symbol, "#0ECB81", offset=16)
+    # Аннотируем минимальную и максимальную цены
+    _annotate_price(ax, min_time, min_price, adjusted_min_price, currency_symbol, "#F6465D", offset=-24)
+    _annotate_price(ax, max_time, max_price, adjusted_max_price, currency_symbol, "#0ECB81", offset=16)
 
-    last_price = prices[-1]
-    last_time = dates[-1]
-    _annotate_price(ax, last_time, last_price, currency_symbol, "#FFC700", offset=16)
+    # Аннотируем последнюю цену
+    _annotate_price(ax, last_time, last_price, adjusted_last_price, currency_symbol, "#FFC700", offset=16)
 
     fig.text(
         0.45,
@@ -186,9 +197,7 @@ async def create_price_chart(dates, prices, item_name, period, currency_symbol):
     )
 
     _customize_plot(ax, fig, min_price, max_price, y_start)
-
     _add_watermark(fig)
-
     image_path = _save_chart_image(fig, item_name, period)
 
     return image_path

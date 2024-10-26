@@ -81,7 +81,9 @@
       "PRICE_CHART_REPORT": "💬 <b>{inspected_item} {filter_period} prices</b>\n\n🟢 <b>Max Price:</b>\n• <b>{max} {currency_name}</b>\n• Sold: {max_volume} units\n\n🔴 <b>Min Price:</b>\n• <b>{min} {currency_name}</b>\n• Sold: <b>{min_volume} units</b>\n\n🟡 <b>Avg Price:</b>\n• <b>{avg} {currency_name}</b>\n• Sold: <b>{avg_volume} units</b>\n\n<b>Total Sold:</b> {volume} units\n\n<b>Rate:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Updated</b> {exchange_time}"
     },
     "compare_prices": {
-      "MARKET_PRICES": "💬 <b>{item} | Markets prices</b>\n\n<b>🔸Steam:</b>\n|- Min Price: <u><b>{steam_min_price}</b></u>\n|- Avg Price: <b>{steam_average_price}</b>\n|- Offers: <b>{steam_offers}</b>\n\n<b>🔹DMarket:</b>\n|- Min Price: <b><u>{dmarket_converted_min_price} {currency_name}</u></b>\n|- Avg Price: <b>{dmarket_converted_average_price} {currency_name}</b>\n|- Offers: <b>{dmarket_offers}</b>\n\n<b>1 USD = {dmarket_converted_ratio} {currency_name}</b>\n<code>{dmarket_exchange_time}</code>"
+      "MARKET_PRICES_HEADER": "💬 <b>{item} | Цены на рынках</b>\n\n",
+      "MARKET_ENTRY": "<b>{market_name}:</b>\n|- Мин. цена: <u><b>{min_price} {currency_name}</b></u>\n|- Средняя цена: <b>{avg_price} {currency_name}</b>\n|- Предложений: <b>{volume}</b>\n\n",
+      "MARKET_PRICES_FOOTER": "<b>1 USD = {exchange_rate} {currency_name}</b>\n<code>{exchange_time}</code>"
     },
     "check_liquidity": {
       "LIQUIDITY_REPORT": "💧 <b>Liquidity Check</b>\n\n🏆 <b>Highest Buy Request:</b> {highest_buy_order} or lower\n🏷️ <b>Lowest Sell Offer:</b> {lowest_sell_order} (after fees: {highest_sell_order_no_fee})\n\n⚖️ <b>Margin Status:</b> {margin_status}\n💼 <b>Margin Value:</b> {margin_value} ({margin}%)\n\n📈 Make smart trading decisions with these insights!"
