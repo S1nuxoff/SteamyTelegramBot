@@ -76,7 +76,7 @@ def _add_watermark(fig):
 
 
 def _save_chart_image(fig, item_name, period):
-    temp_dir = "temp"
+    temp_dir = "charts"
 
     if not os.path.exists(temp_dir):
         os.makedirs(temp_dir)

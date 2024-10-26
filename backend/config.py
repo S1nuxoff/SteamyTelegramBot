@@ -23,4 +23,9 @@ DMARKET_MARKET_ITEMS_URL = "https://api.dmarket.com/exchange/v1/market/items"
 
 # -------------------------------------------------------SKINPORT-------------------------------------------------------
 
-SKINPORT_MARKET_ITEMS_URL = "https://api.skinport.com/v1/sales/history"
+# SKINPORT_MARKET_ITEMS_URL = "https://api.skinport.com/v1/sales/history"
+SKINPORT_MARKET_ITEMS_URL = "https://api.skinport.com/v1/items"
+
+# -------------------------------------------------------BITSKINS-------------------------------------------------------
+BITSKINS_SEARCH_SKIN_URL = "https://api.bitskins.com/market/search/skin_name"
+BITSKINS_PRICING_LIST_URL = "https://api.bitskins.com/market/pricing/list"

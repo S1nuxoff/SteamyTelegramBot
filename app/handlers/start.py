@@ -27,7 +27,7 @@ async def cmd_start(message: Message):
             "•  *Chart Analysis:* Track and analyze price trends.\n"
             "•  *Liquidity Check:* See how easily items can be sold.\n"
             "•  *Price Alerts:* Get price change notifications.\n"
-            "•  *Float Info:* Check item quality with Float values.\n"
+            "•  *Float Info:* Check items quality with Float values.\n"
             "•  *Best Float Search:* Find the best Float offers\n\n"
             "*Ready to explore? Let’s get started!* 🚀"
         ),

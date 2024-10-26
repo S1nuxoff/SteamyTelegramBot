@@ -5,7 +5,6 @@ from aiogram import Router, F
 from aiogram.types import CallbackQuery, FSInputFile
 from aiogram.fsm.context import FSMContext
 import app.database.requests as rq
-from app.tools.compare_prices import compare_price
 from app.keyboards import chart_period, back
 from app.tools.price_chart import price_chart
 from app.tools.check_liquidity import check_liquidity
@@ -35,7 +34,7 @@ async def compare_prices_handler(callback: CallbackQuery, state: FSMContext):
     async with aiohttp.ClientSession() as session:
         async with session.get(
             API_URL,
-            params={"appid": appid, "item": inspected_item}
+            params={"appid": appid, "items": inspected_item}
         ) as response:
             if response.status == 200:
                 data = await response.json()
@@ -52,8 +51,8 @@ async def compare_prices_handler(callback: CallbackQuery, state: FSMContext):
 
         for market in data["markets"]:
             market_name = market.get("market", "Unknown")
-            min_price = round(market.get("min") * ratio, 2)
-            avg_price = round(market.get("avg") * ratio,2)
+            min_price = round(market.get("min") * ratio, 2) if market.get("min") is not None else None
+            avg_price = round(market.get("avg") * ratio, 2) if market.get("avg") is not None else None
             volume = market.get("volume")
 
             market_entry = market_entry_template.format(

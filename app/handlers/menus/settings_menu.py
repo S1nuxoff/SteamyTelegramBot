@@ -9,13 +9,13 @@ import app.database.requests as rq
 
 settings_menu_router = Router()
 
-# Function to show the settings menu, retrieving and using the user's language
+# Function to show the settings menu, retrieving and using the users's language
 async def show_settings_menu(callback: CallbackQuery, state: FSMContext):
-    # Retrieve the user's language from the database
+    # Retrieve the users's language from the database
     user_data = await rq.get_state(callback.from_user.id)
     user_language = user_data.get('language')
 
-    # Store the user's language in FSM context
+    # Store the users's language in FSM context
     await state.update_data(user_language=user_language)
 
     keyboard = await settings_menu(user_language)
@@ -35,7 +35,7 @@ async def handle_settings(callback: CallbackQuery, state: FSMContext):
 
 @settings_menu_router.callback_query(F.data == "settings_currency")
 async def handle_settings_currency(callback: CallbackQuery, state: FSMContext):
-    # Retrieve the user's language from FSM context
+    # Retrieve the users's language from FSM context
     data = await state.get_data()
     user_language = data.get('user_language')
 
@@ -61,7 +61,7 @@ async def handle_currency_selection(callback: CallbackQuery, state: FSMContext):
     # Update the currency in the database
     await rq.set_currency(user_id, currency_id)
 
-    # Retrieve the user's language from FSM context
+    # Retrieve the users's language from FSM context
     state_data = await state.get_data()
     user_language = state_data.get('user_language')
 

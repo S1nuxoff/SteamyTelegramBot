@@ -1,12 +1,12 @@
 from fastapi import FastAPI, Query
-from backend.GET.steam.price import get_price
-from backend.GET.steam.sales_history import get_sales_history
-from backend.GET.steam.verify_item import verify_item
-from backend.GET.steam.liquidity import get_liquidity
-from backend.GET.steam.nameid import get_nameid
-from backend.GET.general.float import get_float
+from backend.GET.item.price import get_price
+from backend.GET.item.sales_history import get_sales_history
+from backend.GET.item.verify_item import verify_item
+from backend.GET.item.liquidity import get_liquidity
+from backend.GET.item.nameid import get_nameid
+from backend.GET.item.float import get_float
 from backend.POST.update_currencies import update_currencies
-from backend.GET.general.markets_prices import get_markets_prices
+from backend.GET.item.markets_prices import get_markets_prices
 
 app = FastAPI()
 
@@ -20,6 +20,7 @@ async def sales_history_endpoint(
     appid: int,
     item: str,
         period: str = Query("week", pattern="^(day|week|month|lifetime)$"),
+
 ):
     result = await get_sales_history(appid, item, period)
     return result

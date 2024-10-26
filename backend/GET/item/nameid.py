@@ -1,7 +1,7 @@
 import aiohttp
 import re
 import urllib.parse
-from config import STEAM_MARKET_LISTINGS_URL
+from backend.config import STEAM_MARKET_LISTINGS_URL
 
 regex = re.compile(r"Market_LoadOrderSpread\( (\d+) \)")
 

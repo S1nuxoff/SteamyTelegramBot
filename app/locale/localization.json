@@ -81,8 +81,8 @@
       "PRICE_CHART_REPORT": "💬 <b>{inspected_item} {filter_period} prices</b>\n\n🟢 <b>Max Price:</b>\n• <b>{max} {currency_name}</b>\n• Sold: {max_volume} units\n\n🔴 <b>Min Price:</b>\n• <b>{min} {currency_name}</b>\n• Sold: <b>{min_volume} units</b>\n\n🟡 <b>Avg Price:</b>\n• <b>{avg} {currency_name}</b>\n• Sold: <b>{avg_volume} units</b>\n\n<b>Total Sold:</b> {volume} units\n\n<b>Rate:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Updated</b> {exchange_time}"
     },
     "compare_prices": {
-      "MARKET_PRICES_HEADER": "💬 <b>{item} | Цены на рынках</b>\n\n",
-      "MARKET_ENTRY": "<b>{market_name}:</b>\n|- Мин. цена: <u><b>{min_price} {currency_name}</b></u>\n|- Средняя цена: <b>{avg_price} {currency_name}</b>\n|- Предложений: <b>{volume}</b>\n\n",
+      "MARKET_PRICES_HEADER": "💬 <b>{item} | Market Prices</b>\n\n",
+      "MARKET_ENTRY": "<b>{market_name}:</b>\n|- Min. Price: <u><b>{min_price} {currency_name}</b></u>\n|- Avg. Price: <b>{avg_price} {currency_name}</b>\n|- Listings: <b>{volume}</b>\n\n",
       "MARKET_PRICES_FOOTER": "<b>1 USD = {exchange_rate} {currency_name}</b>\n<code>{exchange_time}</code>"
     },
     "check_liquidity": {
@@ -174,7 +174,9 @@
       "PRICE_CHART_REPORT": "💬 <b>{inspected_item} {filter_period} цены</b>\n\n🟢 <b>Максимальная цена:</b>\n• <b>{max} {currency_name}</b>\n• Продано: {max_volume} шт.\n\n🔴 <b>Минимальная цена:</b>\n• <b>{min} {currency_name}</b>\n• Продано: <b>{min_volume} шт.</b>\n\n🟡 <b>Средняя цена:</b>\n• <b>{avg} {currency_name}</b>\n• Продано: <b>{avg_volume} шт.</b>\n\n<b>Всего продано:</b> {volume} шт.\n\n<b>Курс:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Обновлено:</b> {exchange_time}"
     },
     "compare_prices": {
-      "MARKET_PRICES": "💬 <b>{item} | Цены на рынках</b>\n\n<b>🔸Steam:</b>\n|- Мин. цена: <u><b>{steam_min_price}</b></u>\n|- Ср. цена: <b>{steam_average_price}</b>\n|- Предложений: <b>{steam_offers}</b>\n\n<b>🔹DMarket:</b>\n|- Мин. цена: <b><u>{dmarket_converted_min_price} {currency_name}</u></b>\n|- Ср. цена: <b>{dmarket_converted_average_price} {currency_name}</b>\n|- Предложений: <b>{dmarket_offers}</b>\n\n<b>1 USD = {dmarket_converted_ratio} {currency_name}</b>\n<code>{dmarket_exchange_time}</code>"
+      "MARKET_PRICES_HEADER": "💬 <b>{item} | Цены на рынках</b>\n\n",
+      "MARKET_ENTRY": "<b>{market_name}:</b>\n|- Мин. цена: <u><b>{min_price} {currency_name}</b></u>\n|- Средняя цена: <b>{avg_price} {currency_name}</b>\n|- Предложений: <b>{volume}</b>\n\n",
+      "MARKET_PRICES_FOOTER": "<b>1 USD = {exchange_rate} {currency_name}</b>\n<code>{exchange_time}</code>"
     },
     "check_liquidity": {
       "LIQUIDITY_REPORT": "💧 <b>Проверка ликвидности</b>\n\n🏆 <b>Самая высокая заявка на покупку:</b> {highest_buy_order} или ниже\n🏷️ <b>Самое низкое предложение на продажу:</b> {lowest_sell_order} (после комиссий: {highest_sell_order_no_fee})\n\n⚖️ <b>Статус маржи:</b> {margin_status}\n💼 <b>Значение маржи:</b> {margin_value} ({margin}%)\n\n📈 Принимайте разумные торговые решения с помощью этих данных!"
@@ -265,7 +267,9 @@
       "PRICE_CHART_REPORT": "💬 <b>{inspected_item} {filter_period} ціни</b>\n\n🟢 <b>Максимальна ціна:</b>\n• <b>{max} {currency_name}</b>\n• Продано: {max_volume} шт.\n\n🔴 <b>Мінімальна ціна:</b>\n• <b>{min} {currency_name}</b>\n• Продано: <b>{min_volume} шт.</b>\n\n🟡 <b>Середня ціна:</b>\n• <b>{avg} {currency_name}</b>\n• Продано: <b>{avg_volume} шт.</b>\n\n<b>Всього продано:</b> {volume} шт.\n\n<b>Курс:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Оновлено:</b> {exchange_time}"
     },
     "compare_prices": {
-      "MARKET_PRICES": "💬 <b>{item} | Ціни на ринках</b>\n\n<b>🔸Steam:</b>\n|- Мін. ціна: <u><b>{steam_min_price}</b></u>\n|- Ср. ціна: <b>{steam_average_price}</b>\n|- Пропозицій: <b>{steam_offers}</b>\n\n<b>🔹DMarket:</b>\n|- Мін. ціна: <b><u>{dmarket_converted_min_price} {currency_name}</u></b>\n|- Ср. ціна: <b>{dmarket_converted_average_price} {currency_name}</b>\n|- Пропозицій: <b>{dmarket_offers}</b>\n\n<b>1 USD = {dmarket_converted_ratio} {currency_name}</b>\n<code>{dmarket_exchange_time}</code>"
+      "MARKET_PRICES_HEADER": "💬 <b>{item} | Ціни на ринках</b>\n\n",
+      "MARKET_ENTRY": "<b>{market_name}:</b>\n|- Мін. ціна: <u><b>{min_price} {currency_name}</b></u>\n|- Середня ціна: <b>{avg_price} {currency_name}</b>\n|- Пропозицій: <b>{volume}</b>\n\n",
+      "MARKET_PRICES_FOOTER": "<b>1 USD = {exchange_rate} {currency_name}</b>\n<code>{exchange_time}</code>"
     },
     "check_liquidity": {
       "LIQUIDITY_REPORT": "💧 <b>Перевірка ліквідності</b>\n\n🏆 <b>Найвищий запит на покупку:</b> {highest_buy_order} або нижче\n🏷️ <b>Найнижча пропозиція на продаж:</b> {lowest_sell_order} (після комісій: {highest_sell_order_no_fee})\n\n⚖️ <b>Статус маржі:</b> {margin_status}\n💼 <b>Значення маржі:</b> {margin_value} ({margin}%)\n\n📈 Приймайте розумні торгові рішення з цими даними!"
@@ -356,7 +360,9 @@
       "PRICE_CHART_REPORT": "💬 <b>{inspected_item} {filter_period} ceny</b>\n\n🟢 <b>Maksymalna cena:</b>\n• <b>{max} {currency_name}</b>\n• Sprzedano: {max_volume} szt.\n\n🔴 <b>Minimalna cena:</b>\n• <b>{min} {currency_name}</b>\n• Sprzedano: <b>{min_volume} szt.</b>\n\n🟡 <b>Średnia cena:</b>\n• <b>{avg} {currency_name}</b>\n• Sprzedano: <b>{avg_volume} szt.</b>\n\n<b>Łącznie sprzedano:</b> {volume} szt.\n\n<b>Kurs:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Aktualizacja:</b> {exchange_time}"
     },
     "compare_prices": {
-      "MARKET_PRICES": "💬 <b>{item} | Ceny na rynkach</b>\n\n<b>🔸Steam:</b>\n|- Min. cena: <u><b>{steam_min_price}</b></u>\n|- Śr. cena: <b>{steam_average_price}</b>\n|- Ofert: <b>{steam_offers}</b>\n\n<b>🔹DMarket:</b>\n|- Min. cena: <b><u>{dmarket_converted_min_price} {currency_name}</u></b>\n|- Śr. cena: <b>{dmarket_converted_average_price} {currency_name}</b>\n|- Ofert: <b>{dmarket_offers}</b>\n\n<b>1 USD = {dmarket_converted_ratio} {currency_name}</b>\n<code>{dmarket_exchange_time}</code>"
+      "MARKET_PRICES_HEADER": "💬 <b>{item} | Ceny na rynkach</b>\n\n",
+      "MARKET_ENTRY": "<b>{market_name}:</b>\n|- Min. cena: <u><b>{min_price} {currency_name}</b></u>\n|- Średnia cena: <b>{avg_price} {currency_name}</b>\n|- Ofert: <b>{volume}</b>\n\n",
+      "MARKET_PRICES_FOOTER": "<b>1 USD = {exchange_rate} {currency_name}</b>\n<code>{exchange_time}</code>"
     },
     "check_liquidity": {
       "LIQUIDITY_REPORT": "💧 <b>Sprawdzenie płynności</b>\n\n🏆 <b>Najwyższe zapotrzebowanie na zakup:</b> {highest_buy_order} lub niżej\n🏷️ <b>Najniższa oferta sprzedaży:</b> {lowest_sell_order} (po opłatach: {highest_sell_order_no_fee})\n\n⚖️ <b>Status marży:</b> {margin_status}\n💼 <b>Wartość marży:</b> {margin_value} ({margin}%)\n\n📈 Podejmuj mądre decyzje handlowe dzięki tym informacjom!"
@@ -447,7 +453,9 @@
       "PRICE_CHART_REPORT": "💬 <b>{inspected_item} {filter_period} бәяләре</b>\n\n🟢 <b>Максималь бәя:</b>\n• <b>{max} {currency_name}</b>\n• Сатылды: {max_volume} шт.\n\n🔴 <b>Минималь бәя:</b>\n• <b>{min} {currency_name}</b>\n• Сатылды: <b>{min_volume} шт.</b>\n\n🟡 <b>Уртача бәя:</b>\n• <b>{avg} {currency_name}</b>\n• Сатылды: <b>{avg_volume} шт.</b>\n\n<b>Барлыгы сатылды:</b> {volume} шт.\n\n<b>Курс:</b> 1 USD = <b>{converted_ratio} {currency_name}</b>\n<b>Яңартылды:</b> {exchange_time}"
     },
     "compare_prices": {
-      "MARKET_PRICES": "💬 <b>{item} | Базар бәяләре</b>\n\n<b>🔸Steam:</b>\n|- Мин. бәя: <u><b>{steam_min_price}</b></u>\n|- Уртача бәя: <b>{steam_average_price}</b>\n|- Тәкъдимнәр: <b>{steam_offers}</b>\n\n<b>🔹DMarket:</b>\n|- Мин. бәя: <b><u>{dmarket_converted_min_price} {currency_name}</u></b>\n|- Уртача бәя: <b>{dmarket_converted_average_price} {currency_name}</b>\n|- Тәкъдимнәр: <b>{dmarket_offers}</b>\n\n<b>1 USD = {dmarket_converted_ratio} {currency_name}</b>\n<code>{dmarket_exchange_time}</code>"
+      "MARKET_PRICES_HEADER": "💬 <b>{item} | Базар бәяләре</b>\n\n",
+      "MARKET_ENTRY": "<b>{market_name}:</b>\n|- Мин. бәясе: <u><b>{min_price} {currency_name}</b></u>\n|- Уртача бәясе: <b>{avg_price} {currency_name}</b>\n|- Тәкъдимнәр: <b>{volume}</b>\n\n",
+      "MARKET_PRICES_FOOTER": "<b>1 USD = {exchange_rate} {currency_name}</b>\n<code>{exchange_time}</code>"
     },
     "check_liquidity": {
       "LIQUIDITY_REPORT": "💧 <b>Ликвидлыкны тикшерү</b>\n\n🏆 <b>Иң югары сатып алу соравы:</b> {highest_buy_order} яки түбәнрәк\n🏷️ <b>Иң түбән сатылу тәкъдиме:</b> {lowest_sell_order} (комиссиядән соң: {highest_sell_order_no_fee})\n\n⚖️ <b>Маржа статусы:</b> {margin_status}\n💼 <b>Маржа кыйммәте:</b> {margin_value} ({margin}%)\n\n📈 Бу мәгълүматлар белән акыллы сәүдә карарлары кабул итегез!"

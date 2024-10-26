@@ -242,7 +242,7 @@ async def get_state(tg_id):
             inspected_item = None
 
         if not sel_game:
-            raise ValueError("sel_game is not set for the user.")
+            raise ValueError("sel_game is not set for the users.")
 
         # Получаем данные по выбранной игре
         game_data = await session.execute(

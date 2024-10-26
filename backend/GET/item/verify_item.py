@@ -1,7 +1,7 @@
 import aiohttp
 import asyncio
-from backend.GET.utils.common import clear_url
-from config import STEAM_PRICE_OVERVIEW_URL
+from backend.utils.common import clear_url
+from backend.config import STEAM_PRICE_OVERVIEW_URL
 
 
 async def verify_item(appid, item):

@@ -1,6 +1,6 @@
 import aiohttp
-from backend.GET.utils.common import clean_price, calculate_margin
-from config import ITEM_ORDERS_HISTOGRAM_URL
+from backend.utils.common import clean_price, calculate_margin
+from backend.config import ITEM_ORDERS_HISTOGRAM_URL
 
 
 

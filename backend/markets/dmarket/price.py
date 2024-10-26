@@ -6,11 +6,12 @@ async def get_dmarket_price(game_id, item):
     currency_code = "USD"
     limit = 100
     url = DMARKET_MARKET_ITEMS_URL
+
     params = {
         "gameId": game_id,
         "title": item,
         "limit": limit,
-        "currency": currency_code,
+        "currency": "USD",
         "orderBy": "price",
         "orderDir": "asc",
     }
@@ -19,12 +20,13 @@ async def get_dmarket_price(game_id, item):
         async with session.get(url, params=params) as response:
             response.raise_for_status()  # Проверяем статус ответа
             data = await response.json()  # Дожидаемся получения JSON
+
             items = data.get("objects", [])
 
             if not items:
                 return {"error": "Предметы не найдены"}
 
-            # Преобразуем цены в доллары и фильтруем по валюте
+
             prices = [
                 int(item["price"].get(currency_code, 0)) / 100
                 for item in items
@@ -52,6 +54,7 @@ async def get_dmarket_price(game_id, item):
                 "volume": (
                     f"{total_items}+" if total_items >= limit else total_items
                 ),
+                "items": items
             }
 
             return prices_data

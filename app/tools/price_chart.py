@@ -3,12 +3,13 @@ import platform
 import aiohttp
 import app.database.requests as rq
 
-from app.api.steam.sales import get_sales_history
 from app.utils.charts.price_chart import create_price_chart
 
 
 async def price_chart(appid, inspected_item, period, currency_id, currency_name):
+
     API_URL = "http://185.93.6.180:8000/sales_history"
+
     exchange_ratio = await rq.get_currency_ratio(currency_id)
     ratio = exchange_ratio.get("ratio", 1)
     ratio_time = exchange_ratio.get("time")
@@ -16,7 +17,7 @@ async def price_chart(appid, inspected_item, period, currency_id, currency_name)
     async with aiohttp.ClientSession() as session:
         async with session.get(
                 API_URL,
-                params={"appid": appid, "item": inspected_item, "period": period}
+                params={"appid": appid, "items": inspected_item, "period": period}
         ) as response:
             if response.status == 200:
                 data = await response.json()

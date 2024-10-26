@@ -1,14 +1,16 @@
 import re
 import json
-
+import aiohttp
+import urllib.parse
 from datetime import datetime, timedelta
 from typing import List, Tuple, Dict, Any
 
-from app.api.steam.requests import fetch_item_page
-import app.database.requests as rq
+from backend.config import STEAM_MARKET_LISTINGS_URL
+
+regex = re.compile(r"Market_LoadOrderSpread\( (\d+) \)")
+
 
 async def extract_sales_history(html_data):
-
     pattern = r"var line1\s*=\s*(\[.*?\]);"
     match = re.search(pattern, html_data, re.MULTILINE | re.DOTALL)
 
@@ -46,13 +48,15 @@ async def extract_sales_history(html_data):
 
     return dates, prices, sales
 
-async def filter_sales_history(dates: List[datetime], prices: List[float], period: str) -> Tuple[List[datetime], List[float], str]:
+
+async def filter_sales_history(dates: List[datetime], prices: List[float], period: str) -> Tuple[
+    List[datetime], List[float], str]:
     periods = ["day", "week", "month", "lifetime"]
     period_deltas = {
         "day": timedelta(days=1),
         "week": timedelta(weeks=1),
         "month": timedelta(days=30),
-        "lifetime": None,
+        "all_time": None,
     }
     try:
         start_index = periods.index(period)
@@ -77,11 +81,6 @@ async def filter_sales_history(dates: List[datetime], prices: List[float], perio
             return filtered_dates, filtered_prices, current_period
     return [], [], periods[-1]
 
-async def initialize_item(appid: int, market_hash_name: str, nameid: int) -> None:
-    item = await rq.get_item(market_hash_name)
-    if not item:
-        await rq.add_item(market_hash_name, nameid, appid)
-
 
 async def extract_and_filter_sales_history(html_data: str, period: str) -> Dict[str, Any]:
     dates, prices, sales = await extract_sales_history(html_data)
@@ -104,10 +103,13 @@ async def extract_and_filter_sales_history(html_data: str, period: str) -> Dict[
         }
     }
 
+
 def count_sales_within_tolerance(price: float, tolerance: float, prices: List[float]) -> int:
     return sum(1 for p in prices if price - tolerance <= p <= price + tolerance)
 
-def compute_statistics(filtered_prices: List[float], filtered_sales: List[int], tolerance: float = 0.02) -> Tuple[float, int, float, int, float, int, float]:
+
+def compute_statistics(filtered_prices: List[float], filtered_sales: List[int], tolerance: float = 0.02) -> Tuple[
+    float, int, float, int, float, int, float]:
     if not filtered_prices:
         return 0.00, 0, 0.00, 0, 0.00, 0, 0.00
     avg_price = round(sum(filtered_prices) / len(filtered_prices), 2)
@@ -120,36 +122,33 @@ def compute_statistics(filtered_prices: List[float], filtered_sales: List[int], 
 
     return avg_price, avg_volume, max_price, max_volume, min_price, min_volume, volume
 
-async def get_sales_history(appid: int, market_hash_name: str, period: str, currency_id: int) -> Dict[str, Any]:
-    html_data, nameid, market_page = await fetch_item_page(appid, market_hash_name)
+
+async def get_sales_history(appid: int, market_hash_name: str, period: str, timeout=10) -> Dict[str, Any]:
+    encoded_name = urllib.parse.quote(market_hash_name)
+    url = f"{STEAM_MARKET_LISTINGS_URL}{appid}/{encoded_name}"
+
+    async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=timeout)) as session:
+        async with session.get(url) as response:
+            response.raise_for_status()
+            html_data = await response.text()
+
     sales_data = await extract_and_filter_sales_history(html_data, period)
     if not sales_data.get("Success"):
         return sales_data
-    exchange_ratio = await rq.get_currency_ratio(currency_id)
-    ratio = exchange_ratio.get("ratio")
-    ratio_time = exchange_ratio.get("time")
-    if ratio is None:
-        return {"Success": False, "error": "Exchange ratio not available"}
 
     sales = sales_data.get('sales')
     filter_period = sales.get('filter_period')
     filtered_dates = sales.get('filtered_dates')
     filtered_prices = sales.get('filtered_prices')
     filtered_sales = sales.get('filtered_sales')
-    await initialize_item(appid, market_hash_name, nameid)
-    avg, avg_volume, max_price, max_volume, min_price, min_volume, volume = compute_statistics(filtered_prices, filtered_sales)
-    max_price = round(max_price * ratio, 2)
-    min_price = round(min_price * ratio, 2)
-    avg = round(avg * ratio, 2)
+    avg, avg_volume, max_price, max_volume, min_price, min_volume, volume = compute_statistics(filtered_prices,
+                                                                                               filtered_sales)
     data = {
-        "Success": True,
+        "success": True,
         "data": {
             "market_hash_name": market_hash_name,
-            "market_page": market_page,
+            "market_page": url,
             "filter_period": filter_period,
-            "currency": currency_id,
-            "ratio": ratio,
-            "ratio_time": ratio_time,
             "sales": {
                 "min": min_price,
                 "min_volume": min_volume,
@@ -158,7 +157,7 @@ async def get_sales_history(appid: int, market_hash_name: str, period: str, curr
                 "avg": avg,
                 "avg_volume": avg_volume,
                 "volume": volume,
-                "dates":filtered_dates,
+                "dates": filtered_dates,
                 "prices": filtered_prices,
             }
 

@@ -1,6 +1,6 @@
 import aiohttp
 from backend.config import STEAM_PRICE_OVERVIEW_URL
-from backend.GET.utils.common import clean_price
+from backend.utils.common import clean_price
 
 async def get_price(appid, item):
     url = STEAM_PRICE_OVERVIEW_URL

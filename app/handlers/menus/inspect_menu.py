@@ -2,9 +2,10 @@ from aiogram import Router, F
 from aiogram.types import CallbackQuery, Message
 from aiogram.fsm.context import FSMContext
 from typing import Union
+import aiohttp
 
 from app.utils.errors import get_error_message
-from app.api.steam.requests import item_exists
+
 from app.keyboards import (
     inspect_menu,
     setup_inspect_mode,
@@ -21,7 +22,7 @@ inspect_menu_router = Router()
 
 
 async def item_setup(target: Union[CallbackQuery, Message], sel_game_data, user_language, state: FSMContext):
-    # Store user language in the state
+    # Store users language in the state
     await state.update_data(user_language=user_language)
 
     keyboard = await setup_inspect_mode(user_language)
@@ -69,15 +70,27 @@ async def handle_item_input(message: Message, state: FSMContext):
     user_id = message.from_user.id
     user_data = await rq.get_state(user_id)
     sel_game_data = user_data.get("sel_game_data")
+    appid = sel_game_data.get('steam_id')
     item_name = message.text.strip()
 
     # Retrieve user_language from the state
     state_data = await state.get_data()
     user_language = state_data.get('user_language', user_data.get('language'))
 
-    result = await item_exists(sel_game_data.get("steam_id"), item_name)
-    if result["success"]:
-        item_name = result["data"]
+    API_URL = "http://185.93.6.180:8000/verify_item"
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(
+                API_URL,
+                params={"appid": appid, "items": item_name}
+        ) as response:
+            if response.status == 200:
+                data = await response.json()
+            else:
+                data = {"success": False}
+
+    if data["success"]:
+        item_name = data["data"]
         await rq.set_inspected_item(user_id, item_name)
         inspected_item = item_name
         keyboard = await inspect_menu(user_language)
@@ -86,8 +99,7 @@ async def handle_item_input(message: Message, state: FSMContext):
         await message.answer(text=text, parse_mode="Markdown", reply_markup=keyboard)
         await state.clear()
     else:
-        error_message = get_error_message(result["error"], details=result.get("details", ""))
-        await message.answer(error_message)
+        await message.answer("No items Found")
 
 
 @inspect_menu_router.callback_query(F.data.startswith("selected_item_"))
@@ -157,7 +169,6 @@ async def reset_inspected_item(callback: CallbackQuery, state: FSMContext):
 
     await callback.answer(get_text(user_language, 'inspect_menu.RESET_INSPECTED_ITEM'), show_alert=False)
     await show_inspect_menu(callback, state)
-
 
 
 @inspect_menu_router.callback_query(F.data.startswith("sel_from_favorites"))
